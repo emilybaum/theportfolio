@@ -1,0 +1,43 @@
+/* 
+font-family: 'Alfa Slab One', cursive;
+font-family: 'Permanent Marker', cursive;
+font-family: 'Saira Stencil One', cursive;
+ */
+
+.background {
+    background-image: linear-gradient(to bottom right, #f6ad55, #feebc8);
+    height: 100vh;
+}
+
+.eb-navlogo {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 30px;
+}
+
+.emily-webdev-contain {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.emily-webdev {
+    width: 70%;
+    font-size: 70px;
+    font-family: 'Alfa Slab One', cursive;
+}
+
+.emily-passion {
+    font-family: 'Saira Stencil One', cursive;
+    font-size: 40px;
+    color: #feebc8;
+}
+
+.emily-tagline {
+    width: 70%;
+    font-family: 'Alfa Slab One', cursive;
+    border-left: #feebc8 5px solid;
+    padding-left: 
+}
+
+.text-enhance {
+    color: red;
+}

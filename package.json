@@ -18,9 +18,6 @@
   },
   "homepage": "https://github.com/emilybaum/theportfolio#readme",
   "dependencies": {
-    "autoprefixer": "^9.6.1",
-    "express": "^4.17.1",
-    "postcss-cli": "^6.1.3",
-    "tailwindcss": "^1.1.1"
+    "express": "^4.17.1"
   }
 }

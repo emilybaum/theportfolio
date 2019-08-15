@@ -10,70 +10,69 @@
         rel="stylesheet">
 
     <!-- tailwind -->
-    <link rel="stylesheet" href="build/tailwind.css">
+    <!-- <link rel="stylesheet" href="build/tailwind.css"> -->
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- EB CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+
 
     <title>Emiy Baumgartner</title>
 </head>
-<body class="bg-orange-200">
+<body class="background">
 
-    <nav class="flex items-center justify-between flex-wrap bg-orange-300 p-6">
-        <div class="flex items-center flex-shrink-0 text-white mr-6">
-            <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z" />
-                </svg>
-            <span class="font-marker text-xl tracking-tight">Emily Baumgartner</span>
-        </div>
-        <div class="block lg:hidden">
-            <button
-                class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
-                <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <title>Menu</title>
-                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-                </svg>
-            </button>
-        </div>
-        <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-            <div class="text-sm lg:flex-grow">
-                <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-orange-100 hover:text-white mr-4">
-                    Docs
-                </a>
-                <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-orange-100 hover:text-white mr-4">
-                    Examples
-                </a>
-                <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-orange-100 hover:text-white">
-                    Blog
-                </a>
-            </div>
-            <div>
-                <a href="#"
-                    class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Download</a>
-            </div>
-        </div>
-    </nav>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand eb-navlogo" href="/">EB</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class=" collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="portfolio">Portfolio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contact">Contact</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+    
 
-<div class="container mx-auto">
-
-    <div class="h-40"></div>
-
-    <!-- Two columns -->
-    <div class="flex mb-4">
-        <div class="w-1/2 bg-transparent h-40 p-6">
-            <h1 class="text-right select-none">Hi! I'm Emily. I'm pursuing my passion as a full stack web developer</h1>
-            <p class="text-right select-none">(that feels good to say)</p>
+<div class="container">
+    <div class="pt-5">
+        <div class="emily-webdev-contain">
+            <h1 class="emily-webdev">Hi! I'm <span class="text-enhance">Emily</span>.</h1>
+            <h2 class="emily-passion">I'm pursuing my passion as a full stack web developer</h2>
         </div>
-        <div class="w-1/2 bg-transparent h-40 align-baseline p-6">
-            <h1 class="text-left select-none">I've spent thousands of hours working with customers, now I'm building applicaitons
-                that empower them.</h1>
+        <div class="d-flex justify-content-end pt-5">
+            <h2 class="emily-tagline pl-4">I've spent <span class="text-enhance">thousands of hours</span> working with customers, now I'm building applicaitons that
+                empower them.</h2>
         </div>
     </div>
 
-    
+
 </div>
     
 
-    
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
     
 </body>
 </html>
