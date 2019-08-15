@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/emilybaum/theportfolio#readme",
   "dependencies": {
+    "animate.css": "^3.7.2",
     "express": "^4.17.1"
   }
 }

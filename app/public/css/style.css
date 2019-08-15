@@ -5,39 +5,59 @@ font-family: 'Saira Stencil One', cursive;
  */
 
 .background {
-    background-image: linear-gradient(to bottom right, #f6ad55, #feebc8);
-    height: 100vh;
+    background-image: linear-gradient(to bottom right, #ececec, #bfe0e9);
+    height: 100%;
 }
 
 .eb-navlogo {
     font-family: 'Permanent Marker', cursive;
     font-size: 30px;
+    color: #143e49;
 }
 
 .emily-webdev-contain {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+
 }
 .emily-webdev {
     width: 70%;
     font-size: 70px;
     font-family: 'Alfa Slab One', cursive;
+    color: #143e49;
 }
 
 .emily-passion {
     font-family: 'Saira Stencil One', cursive;
-    font-size: 40px;
-    color: #feebc8;
+    font-size: 50px;
+    color: #343A40;
 }
 
 .emily-tagline {
     width: 70%;
     font-family: 'Alfa Slab One', cursive;
-    border-left: #feebc8 5px solid;
-    padding-left: 
+    border-left: #143e49 5px solid;
+    color: #343A40;
+    font-size: 40px;
+    /* color: #143e49; */
 }
 
 .text-enhance {
-    color: red;
+    color: #438496;
+}
+
+.projects-h1 {
+    width: 100%;
+    font-size: 70px;
+    font-family: 'Alfa Slab One', cursive;
+    color: #143e49;
+}
+
+#footer-text {
+    margin-top: 100px;
+    font-family: 'Permanent Marker', cursive;
+    color: #343A40;
+    font-size: 12px;
+    text-align: center;
 }
