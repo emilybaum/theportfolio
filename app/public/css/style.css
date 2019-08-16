@@ -72,13 +72,13 @@ font-family: 'Saira Stencil One', cursive;
 }
 
 .projects-display {
-    overflow: auto;
-    height: 40vh;
+    overflow: hidden;
+    height: 300px;;
     width: 300px;
     margin: 5px;
     margin-bottom: 15px;
     padding: 0px;
-    border-left: solid 5px #143e49;
+    border-left: solid 5px #438496;
 }
 
 .projects-display:hover {
