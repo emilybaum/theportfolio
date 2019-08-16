@@ -14,7 +14,7 @@
 // }
 
 // // ENTRY FOR ANIMATION ON LETTERS
-$(".text-enhance").hover(function () {
+$(".text-animation").hover(function () {
     console.log("hover")
     var thisElement = $(this).attr("id");
     // console.log(thisElement)

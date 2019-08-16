@@ -17,16 +17,15 @@ font-family: 'Saira Stencil One', cursive;
 
 .emily-webdev-contain {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: flex-start;
 
 }
 .emily-webdev {
-    width: 70%;
+    /* width: 70%; */
     font-size: 70px;
     font-family: 'Alfa Slab One', cursive;
     color: #143e49;
-    display: inline;
 }
 
 .emily-passion {
@@ -45,8 +44,11 @@ font-family: 'Saira Stencil One', cursive;
     /* color: #143e49; */
 }
 
-.text-enhance {
-    color: #438496;
+.text-animation {
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 70px;
+    color: #143e49;
+    padding: 1px;
 }
 
 .projects-h1 {
@@ -54,6 +56,10 @@ font-family: 'Saira Stencil One', cursive;
     font-size: 70px;
     font-family: 'Alfa Slab One', cursive;
     color: #143e49;
+}
+
+.text-enhance {
+    color: #438496;
 }
 
 #footer-text {
