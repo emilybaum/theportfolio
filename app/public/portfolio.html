@@ -23,96 +23,159 @@
     <link rel="stylesheet" href="./css/style.css">
     
     <title>Emily</title>
-    </head>
+</head>
     
-    <body class="background">
+<body class="background">
     
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand eb-navlogo" href="/">EB</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class=" collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="portfolio">Portfolio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-<div class="container">
-    <div class="pt-5">
-        <h1 class="projects-h1">Check out some <span class="text-enhance">projects</span>.</h1>
-    </div> <!-- contains all projects -->
-
-    
-    
-    <div>
-
-    
-    <div>
-    <!-- MODAL EXAMPLE -->
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-            Launch demo modal
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand eb-navlogo" href="/">EB</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
-        
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
+        <div class=" collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="portfolio">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row pt-5">
+            <div class="col-sm">
+                <h1 class="projects-h1">Check out some <span class="text-enhance">projects</span>.</h1>
+            </div>
+        </div class="d-flex"> <!-- contains all projects -->
+
+    
+        <div id="projects-row" class="row"> <!-- PROJECTS ROW-->
+            <!-- <div class="col-sm-4"> -->
+                <div class="card projects-display">
+                    <div class="card-body p-0">
+                        <img class="project-image" src="images/getbusy-logo.png">
+                        <p>tech used</p>
+                        
+                        <button type="button" class="btn btn-primary project-button hidden" data-toggle="modal" data-target="#seeMore">
+                            click me
                         </button>
                     </div>
-                    <div class="modal-body">
-                        ...
+                </div>
+            <!-- </div> -->
+
+            <!-- <div class="col-sm-4"> -->
+                <div class="card projects-display">
+                    <div class="card-body p-0">
+                        <img class="project-image" src="images/GuestListerLogo-square.png">
+                        <p>tech used</p>
+                
+                        <button type="button" class="btn btn-primary project-button" data-toggle="modal" data-target="#seeMore">
+                            See more
+                        </button>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            <!-- </div> -->
+
+            <!-- <div class="col-sm-4"> -->
+                <div class="card projects-display">
+                    <div class="card-body">
+                        This is some text within a card body. This is some text within a card body. This is some text within a card
+                        body. This is some text within a card body. This is some text within a card body.
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#seeMore">
+                            See more
+                        </button>
+                    </div>
+                </div>
+            <!-- </div> -->
+
+            <!-- <div class="col-sm-4"> -->
+                <div class="card projects-display">
+                    <div class="card-body">
+                        This is some text within a card body. This is some text within a card body. This is some text within a card
+                        body. This is some text within a card body. This is some text within a card body.
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#seeMore">
+                            See more
+                        </button>
+                    </div>
+                </div>
+            <!-- </div> -->
+
+            <!-- <div class="col-sm-4"> -->
+                <div class="card projects-display">
+                    <div class="card-body">
+                        This is some text within a card body. This is some text within a card body. This is some text within a card
+                        body. This is some text within a card body. This is some text within a card body.
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#seeMore">
+                            See more
+                        </button>
+                    </div>
+                </div>
+            <!-- </div> -->
+            
+        </div> <!-- PROJECTS ROW-->
+    
+        <div>
+        <!-- MODAL EXAMPLE -->
+            <!-- Button trigger modal example -->
+            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#seeMore">
+                Launch demo modal
+            </button> -->
+            
+            <!-- Modal -->
+            <div class="modal fade" id="seeMore" tabindex="-1" role="dialog" aria-labelledby="seeMoreTitle"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
-    </div>
 
-    <footer>
-        <!-- TBD -->
-    </footer>
-    
-</div>
+        <footer>
+            <!-- TBD -->
+        </footer>
+        
+    </div> <!-- end container -->
 
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-<!-- EB JS -->
-<script src="js/app.js"></script>
+    <!-- EB JS -->
+    <script src="js/app.js"></script>
 
 </body>
 </html>

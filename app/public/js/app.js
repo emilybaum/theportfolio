@@ -1,5 +1,6 @@
 function animateCSS(element, animationName) {
     var node = document.querySelector(element)
+    console.log(node)
     node.classList.add('animated', animationName)
 
     function handleAnimationEnd() {
@@ -24,6 +25,10 @@ function test() {
 }
 
 // bootstrap modal
-// $('#myModal').on('shown.bs.modal', function () {
-//     $('#myInput').trigger('focus')
-// })
+$('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+})
+
+$("projects-display").on("hover", function () {
+    $(this).removeClass("hidden")
+})
