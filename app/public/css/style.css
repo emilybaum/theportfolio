@@ -26,10 +26,12 @@ font-family: 'Saira Stencil One', cursive;
     font-size: 70px;
     font-family: 'Alfa Slab One', cursive;
     color: #143e49;
+    display: inline;
 }
 
 .emily-passion {
-    font-family: 'Saira Stencil One', cursive;
+    width: 70%;
+    font-family: 'Permanent Marker', cursive;
     font-size: 50px;
     color: #343A40;
 }
@@ -37,8 +39,8 @@ font-family: 'Saira Stencil One', cursive;
 .emily-tagline {
     width: 70%;
     font-family: 'Alfa Slab One', cursive;
-    border-left: #143e49 5px solid;
-    color: #343A40;
+    border-left: #343A40 5px solid;
+    color: #143e49;
     font-size: 40px;
     /* color: #143e49; */
 }
@@ -57,7 +59,11 @@ font-family: 'Saira Stencil One', cursive;
 #footer-text {
     margin-top: 100px;
     font-family: 'Permanent Marker', cursive;
-    color: #343A40;
+    color: #143e49;
     font-size: 12px;
     text-align: center;
+}
+
+.eb-links {
+    /* text-decoration-color: #438496; */
 }
