@@ -81,6 +81,10 @@ font-family: 'Saira Stencil One', cursive;
     border-left: solid 5px #143e49;
 }
 
+.projects-display:hover {
+    border: solid 10px #438496
+}
+
 .project-image {
     width: 100%;
 }

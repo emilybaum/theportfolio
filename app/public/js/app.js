@@ -30,5 +30,6 @@ $('#myModal').on('shown.bs.modal', function () {
 })
 
 $("projects-display").on("hover", function () {
+    alert("hover")
     $(this).removeClass("hidden")
 })
