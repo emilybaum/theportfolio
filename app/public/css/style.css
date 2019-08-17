@@ -16,8 +16,9 @@ font-family: 'Saira Stencil One', cursive;
 }
 
 .emily-webdev-contain {
+    width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: row wrap;
     justify-content: flex-start;
 
 }
@@ -120,13 +121,7 @@ font-family: 'Saira Stencil One', cursive;
 
 /* === */
 
-#footer-text {
-    margin-top: 100px;
-    font-family: 'Permanent Marker', cursive;
-    color: #143e49;
-    font-size: 12px;
-    text-align: center;
-}
+
 
 #projects-row {
     display: flex;
@@ -165,4 +160,41 @@ font-family: 'Saira Stencil One', cursive;
 
 .eb-links {
     /* text-decoration-color: #438496; */
+}
+
+
+/* FOOTER DETAILS */
+/* #footer-text {
+    margin-top: 100px;
+    font-family: 'Permanent Marker', cursive;
+    color: #143e49;
+    font-size: 12px;
+    text-align: center;
+} */
+
+.code-link p {
+    padding-top: 5px;
+}
+
+.footerEmily {  
+    border-top: 4px solid #4aaaa5;
+}
+
+.footer-text-eb {
+    font-size: 10px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.img-group {
+    background: #66666610;
+    margin-bottom: 1rem;
+    padding-top: .5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border-radius: 2%;
+    width: 30%;
+}
+
+.socialLinks {
+    width: 20px;
 }
