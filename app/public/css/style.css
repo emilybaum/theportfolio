@@ -69,6 +69,7 @@ font-family: 'Saira Stencil One', cursive;
     .listTechTitle {
         font-family: 'Permanent Marker', cursive;
         margin-top: 1rem;
+        font-size: 2rem;
         color: #143e49;
     }
 
@@ -79,7 +80,6 @@ font-family: 'Saira Stencil One', cursive;
 
     .techGroup {
         display: flex;
-        /* flex-direction: row; */
         flex-flow: row wrap;
         justify-content: center;
     }
@@ -88,11 +88,11 @@ font-family: 'Saira Stencil One', cursive;
         margin: 4px;
         background: #9ab3b9;
         color: white;
-        padding: 2px;
+        padding: 4px;
         font-family: 'Courier New', Courier, monospace;
-        font-size: 12px;
-        border-radius: 5px;
-        height: 1.5rem;
+        font-size: 1rem;
+        border-radius: 4px;
+        height: 2rem;
     }
 
     .modal-footer {
