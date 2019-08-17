@@ -17,7 +17,7 @@ font-family: 'Saira Stencil One', cursive;
 
 .emily-webdev-contain {
     width: 100%;
-    display: flex;
+    display: inline-flex;
     flex-direction: row wrap;
     justify-content: flex-start;
 
@@ -147,7 +147,7 @@ font-family: 'Saira Stencil One', cursive;
 }
 
 .keyBox {
-    background: #ffffff75;
+    background: #ffffff60;
     border-radius: 5px;
 }
 
@@ -165,7 +165,7 @@ font-family: 'Saira Stencil One', cursive;
 
 
 .projects-display:hover {
-    border: solid 10px #438496
+    border: solid 10px #43849675
 }
 
 .project-image {
