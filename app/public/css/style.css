@@ -34,9 +34,9 @@ font-family: 'Saira Stencil One', cursive;
 }
 
 .emily-passion {
-    width: 70%;
+    width: 80%;
     font-family: 'Permanent Marker', cursive;
-    font-size: 50px;
+    font-size: 35px;
     color: #343A40;
 }
 
@@ -54,6 +54,10 @@ font-family: 'Saira Stencil One', cursive;
     font-size: 70px;
     color: #143e49;
     padding: 1px;
+}
+
+.eb-hidden {
+    display: none;
 }
 
 .projects-h1 {
