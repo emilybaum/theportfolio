@@ -15,6 +15,10 @@ font-family: 'Saira Stencil One', cursive;
     color: #143e49;
 }
 
+.nav-link {
+    font-family: 'Permanent Marker', cursive;
+}
+
 .emily-webdev-contain {
     width: 100%;
     display: inline-flex;
@@ -152,20 +156,20 @@ font-family: 'Saira Stencil One', cursive;
 }
 
 .borderFS {
-    border-left: solid 9px #438496;
+    border-left: solid 10px #438496;
 }
 
 .borderFE {
-    border-left: solid 9px #343A40;
+    border-left: solid 10px #143e49;
 }
 
 .borderBE {
-    border-left: solid 9px #ffffff;
+    border-left: solid 10px #ffffff;
 }
 
 
 .projects-display:hover {
-    border: solid 10px #43849675
+    border: solid 10px #c99b61
 }
 
 .project-image {
