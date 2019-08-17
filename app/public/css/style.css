@@ -164,37 +164,31 @@ font-family: 'Saira Stencil One', cursive;
 
 
 /* FOOTER DETAILS */
-/* #footer-text {
-    margin-top: 100px;
-    font-family: 'Permanent Marker', cursive;
-    color: #143e49;
-    font-size: 12px;
-    text-align: center;
-} */
 
 .code-link p {
     padding-top: 5px;
 }
 
 .footerEmily {  
-    border-top: 4px solid #4aaaa5;
+    border-top: 4px solid #438496;
 }
 
 .footer-text-eb {
-    font-size: 10px;
-    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    font-family: 'Permanent Marker', cursive;
+    letter-spacing: 0.1em;
 }
 
 .img-group {
-    background: #66666610;
+    background: #343A40;
     margin-bottom: 1rem;
     padding-top: .5rem;
     margin-left: 1rem;
     margin-right: 1rem;
     border-radius: 2%;
-    width: 30%;
+    width: 40%;
 }
-
+    
 .socialLinks {
-    width: 20px;
+    width: 30px;
 }
