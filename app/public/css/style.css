@@ -55,37 +55,70 @@ font-family: 'Saira Stencil One', cursive;
     width: 100%;
     font-size: 70px;
     font-family: 'Alfa Slab One', cursive;
-    color: #143e49;
+    color: #343A40;
 }
 
 /* Modals */
-.techGroup {
-    display: flex;
-    /* flex-direction: row; */
-    flex-flow: row wrap;
-    justify-content: center;
-}
+    .modalTitle {
+        font-family: 'Permanent Marker', cursive;
+        font-size: 2rem;
+        display: flex;
+        color: #343A40;
+    }
 
-.listTech {
-    margin: 4px;
-    background: #9ab3b9;
-    color: white;
-    padding: 2px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 12px;
-    border-radius: 5px;
-    height: 1.5rem;
-}
+    .listTechTitle {
+        font-family: 'Permanent Marker', cursive;
+        margin-top: 1rem;
+        color: #143e49;
+    }
 
-.modal-footer {
-    display: flex;
-    justify-content: center;
-}
+    .modalDescription {
+        font-family: 'Courier New', Courier, monospace;
+
+    }
+
+    .techGroup {
+        display: flex;
+        /* flex-direction: row; */
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+
+    .listTech {
+        margin: 4px;
+        background: #9ab3b9;
+        color: white;
+        padding: 2px;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 12px;
+        border-radius: 5px;
+        height: 1.5rem;
+    }
+
+    .modal-footer {
+        display: flex;
+        justify-content: center;
+    }
 /* ===== */
 
 .text-enhance {
     color: #438496;
 }
+
+
+/* ABOUT */
+    .versionTitle {
+        background: #9ab3b9;
+        width: 100%;
+    }
+
+    .aboutVersions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+/* === */
 
 #footer-text {
     margin-top: 100px;

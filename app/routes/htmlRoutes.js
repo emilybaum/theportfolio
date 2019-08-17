@@ -11,8 +11,8 @@ module.exports = function (app, passport) {
         res.sendFile(path.join(__dirname, "../public/portfolio.html"));
     });
 
-    // Loads contact page
-    app.get("/contact", function (req, res) {
-        res.sendFile(path.join(__dirname, "../public/contact.html"));
+    // Loads about page
+    app.get("/about", function (req, res) {
+        res.sendFile(path.join(__dirname, "../public/about.html"));
     });
 }
