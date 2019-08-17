@@ -57,20 +57,19 @@
 
         <div id="projects-row" class="row pt-3"> <!-- PROJECTS ROW-->
                 
-                <!-- GETBUSY -->
-                <div data-toggle="modal" data-target="#seeMoreGetBusy"class="card projects-display">
-                    <div class="card-body p-0">
-                        <img class="project-image align-middle" src="images/getbusy-logo.png">
-                    </div>
-                </div> 
-                <!-- done -->
-
                 <!-- GUESTLISTER -->
                 <div data-toggle="modal" data-target="#seeMoreGuestLister" class="card projects-display">
                     <div class="card-body p-0">
                         <img class="project-image" src="images/GuestListerLogo-square.png">
                     </div>
                 </div>
+
+                <!-- GETBUSY -->
+                <div data-toggle="modal" data-target="#seeMoreGetBusy"class="card projects-display">
+                    <div class="card-body p-0">
+                        <img class="project-image align-middle" src="images/getbusy-logo.png">
+                    </div>
+                </div> 
 
                 <!-- STRANGER FRIEND FINDER -->
                 <div data-toggle="modal" data-target="#seeMoreStrangerFriend" class="card projects-display">
@@ -96,35 +95,36 @@
                 <!-- HAMILTON WORD GUESS -->
                 <div data-toggle="modal" data-target="#seeMoreHamilton" class="card projects-display">
                     <div class="card-body p-0">
-                        <img class="project-image" src="images/GuestListerLogo-square.png">
+                        <img class="project-image" src="images/hamilton-word-guess.png">
                     </div>
                 </div>
 
                 <!-- GIF GENERATOR -->
                 <div data-toggle="modal" data-target="#seeMoreGifGen" class="card projects-display">
                     <div class="card-body p-0">
-                        <img class="project-image" src="images/GuestListerLogo-square.png">
+                        <img class="project-image" src="images/gif-generator.png">
                     </div>
                 </div>
 
                 <!-- RESTORE ROOM -->
                 <div data-toggle="modal" data-target="#seeMoreRestore" class="card projects-display">
                     <div class="card-body p-0">
-                        <img class="project-image" src="images/GuestListerLogo-square.png">
+                        <img class="project-image" src="images/restore-this-room.png">
                     </div>
                 </div>
 
                 <!-- TRAIN SCHEDULE -->
                 <div data-toggle="modal" data-target="#seeMoreTrain" class="card projects-display">
                     <div class="card-body p-0">
-                        <img class="project-image" src="images/GuestListerLogo-square.png">
+                        <img class="project-image" src="images/schedulesite.png">
                     </div>
                 </div>
 
                
         </div> <!-- PROJECTS ROW-->
     
-        <!-- ============== MODALS ============== -->
+<!-- ====================================================================================================== -->
+<!-- =============================================== MODALS =============================================== -->
         <div>
         
             <!-- GETBUSY  -->
@@ -289,6 +289,48 @@
                     </div>
                     <div class="modal-body">
                         <div class="mx-auto text-center modalDescription">
+                            An interactive trivia game that tests your knowledge of obscure landmarks from arond the world. 10 questions in total.
+                            20 seconds for each question. For every right answer, you see a gif, and for every wrong answer, you see what the
+                            correct answer would have been.
+                            <br>
+                            <br>
+                            Also, works on mobile!
+                            <br>
+                            (be sure to keep your sound on)
+                        </div>
+                        <div class="mx-auto text-center modalTech">
+                            <h3 class="listTechTitle">Tech Stuff:</h3>
+                            <ul class="list-group techGroup">
+                                <li class="list-group-item listTech">To fill in</li>
+                                <li class="list-group-item listTech">JavaScript</li>
+                                <li class="list-group-item listTech">jQuery</li>
+                                <li class="list-group-item listTech">HTML5 & CSS3</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="https://github.com/emilybaum/TriviaGame" target="_blank"><button type="button"
+                                class="btn btn-secondary modalSeeCode">Github</button></a>
+                        <a href="https://emilybaum.github.io/TriviaGame/" target="_blank"><button type="button" class="btn btn-secondary modalLaunchSite">Launch
+                                Site</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- HAMILTON MODAL -->
+        <div class="modal fade" id="seeMoreHamilton" tabindex="-1" role="dialog" aria-labelledby="seeMoreTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modalTitle">Hamilton Word Guess</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mx-auto text-center modalDescription">
                             "to fill in"
                         </div>
                         <div class="mx-auto text-center modalTech">
@@ -302,9 +344,44 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <a href="#" target="_blank"><button type="button"
+                        <a href="https://github.com/emilybaum/Word-Guess" target="_blank"><button type="button"
                                 class="btn btn-secondary modalSeeCode">Github</button></a>
-                        <a href="#" target="_blank"><button type="button" class="btn btn-secondary modalLaunchSite">Launch
+                        <a href="https://emilybaum.github.io/Word-Guess/" target="_blank"><button type="button" class="btn btn-secondary modalLaunchSite">Launch
+                                Site</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- GIF GENERATOR -->
+        <div class="modal fade" id="######" tabindex="-1" role="dialog" aria-labelledby="seeMoreTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modalTitle">Gif Generator</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mx-auto text-center modalDescription">
+                            "to fill in"
+                        </div>
+                        <div class="mx-auto text-center modalTech">
+                            <h3 class="listTechTitle">Tech Stuff:</h3>
+                            <ul class="list-group techGroup">
+                                <li class="list-group-item listTech">To fill in</li>
+                                <li class="list-group-item listTech">JavaScript</li>
+                                <li class="list-group-item listTech">jQuery</li>
+                                <li class="list-group-item listTech">HTML5 & CSS3</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="https://github.com/emilybaum/giftastic" target="_blank"><button type="button"
+                                class="btn btn-secondary modalSeeCode">Github</button></a>
+                        <a href="https://emilybaum.github.io/giftastic/" target="_blank"><button type="button" class="btn btn-secondary modalLaunchSite">Launch
                                 Site</button></a>
                     </div>
                 </div>
@@ -317,7 +394,8 @@
 
 
 
-
+<!-- ========================================== FILLED IN MODALS ========================================== -->
+<!-- ====================================================================================================== -->
 
         <!-- ____ EXAMPLE ____ -->
         <div class="modal fade" id="######" tabindex="-1" role="dialog" aria-labelledby="seeMoreTitle"
