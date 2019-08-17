@@ -53,9 +53,8 @@
             <div class="col-sm">
                 <h1 class="projects-h1 animated bounceIn">Check out some <span class="text-enhance">projects</span>.</h1>
             </div>
-        </div class="d-flex"> <!-- contains all projects -->
+        </div> <!-- contains all projects -->
 
-    
         <div id="projects-row" class="row pt-3"> <!-- PROJECTS ROW-->
                 
                 <!-- GETBUSY -->
@@ -63,31 +62,60 @@
                     <div class="card-body p-0">
                         <img class="project-image align-middle" src="images/getbusy-logo.png">
                     </div>
-                </div>
+                </div> 
+                <!-- done -->
 
                 <!-- GUESTLISTER -->
-                <div data-toggle="modal" data-target="#seeMore" class="card projects-display">
+                <div data-toggle="modal" data-target="#seeMoreGuestLister" class="card projects-display">
                     <div class="card-body p-0">
                         <img class="project-image" src="images/GuestListerLogo-square.png">
                     </div>
                 </div>
 
-                <!-- GUESTLISTER -->
-                <div data-toggle="modal" data-target="#seeMore" class="card projects-display">
+                <!-- STRANGER FRIEND FINDER -->
+                <div data-toggle="modal" data-target="#seeMoreStrangerFriend" class="card projects-display">
+                    <div class="card-body p-0">
+                        <img class="project-image" src="images/stranger-friend-finder-2.png">
+                    </div>
+                </div>
+
+                <!-- THE ULTIMATE BURGER LISTER -->
+                <div data-toggle="modal" data-target="#seeMoreBurger" class="card projects-display">
+                    <div class="card-body p-0">
+                        <img class="project-image" src="images/theburger.png">
+                    </div>
+                </div>
+
+                <!-- TRIVIA, OBSCURE LANDMARKS -->
+                <div data-toggle="modal" data-target="#seeMoreTrivia" class="card projects-display">
                     <div class="card-body p-0">
                         <img class="project-image" src="images/GuestListerLogo-square.png">
                     </div>
                 </div>
 
-                <!-- GUESTLISTER -->
-                <div data-toggle="modal" data-target="#seeMore" class="card projects-display">
+                <!-- HAMILTON WORD GUESS -->
+                <div data-toggle="modal" data-target="#seeMoreHamilton" class="card projects-display">
                     <div class="card-body p-0">
                         <img class="project-image" src="images/GuestListerLogo-square.png">
                     </div>
                 </div>
 
-                <!-- GUESTLISTER -->
-                <div data-toggle="modal" data-target="#seeMore" class="card projects-display">
+                <!-- GIF GENERATOR -->
+                <div data-toggle="modal" data-target="#seeMoreGifGen" class="card projects-display">
+                    <div class="card-body p-0">
+                        <img class="project-image" src="images/GuestListerLogo-square.png">
+                    </div>
+                </div>
+
+                <!-- RESTORE ROOM -->
+                <div data-toggle="modal" data-target="#seeMoreRestore" class="card projects-display">
+                    <div class="card-body p-0">
+                        <img class="project-image" src="images/GuestListerLogo-square.png">
+                    </div>
+                </div>
+
+                <!-- TRAIN SCHEDULE -->
+                <div data-toggle="modal" data-target="#seeMoreTrain" class="card projects-display">
                     <div class="card-body p-0">
                         <img class="project-image" src="images/GuestListerLogo-square.png">
                     </div>
@@ -96,15 +124,10 @@
                
         </div> <!-- PROJECTS ROW-->
     
+        <!-- ============== MODALS ============== -->
         <div>
-        <!-- MODAL EXAMPLE -->
-            <!-- Button trigger modal example -->
-            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#seeMore">
-                Launch demo modal
-            </button> -->
-            
-            <!-- Modal -->
-            <!-- GETBUSY MODAL -->
+        
+            <!-- GETBUSY  -->
             <div class="modal fade" id="seeMoreGetBusy" tabindex="-1" role="dialog" aria-labelledby="seeMoreTitle"
                 aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -142,6 +165,52 @@
                 </div>
             </div>
         </div>
+
+        <!--  -->
+        <!-- GUESTLISTER MODAL  -->
+        <div class="modal fade" id="seeMoreGuestLister" tabindex="-1" role="dialog" aria-labelledby="seeMoreTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modalTitle">GuestLister</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mx-auto text-center modalDescription">
+                            "to fill in"
+                        </div>
+                        <div class="mx-auto text-center modalTech">
+                            <h3 class="listTechTitle">Tech Stuff:</h3>
+                            <ul class="list-group techGroup">
+                                <li class="list-group-item listTech">JavaScript</li>
+                                <li class="list-group-item listTech">jQuery</li>
+                                <li class="list-group-item listTech">mySQL</li>
+                                <li class="list-group-item listTech">node.js</li>
+                                <li class="list-group-item listTech">Passport package</li>
+                                <li class="list-group-item listTech">Mailgun package</li>
+                                <li class="list-group-item listTech">JAWS DB</li>
+                                <li class="list-group-item listTech">HTML5 & CSS3</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="https://github.com/megangilpin/Project-2" target="_blank"><button type="button"
+                                class="btn btn-secondary modalSeeCode">Github</button></a>
+                        <a href="https://meey-project2.herokuapp.com/" target="_blank"><button type="button"
+                                class="btn btn-secondary modalLaunchSite">Launch Site</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+        <!-- guestlister: https://meey-project2.herokuapp.com/ -->
+        <!-- The Ultimate Burger Lister: https://infinite-lake-29087.herokuapp.com/ -->
+        <!-- stranger friend finder: https://infinite-tor-40817.herokuapp.com/ -->
 
 
 
