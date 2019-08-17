@@ -61,3 +61,9 @@ $(".projects-display").on("hover", function () {
     $(this).removeClass("hidden")
     $(this).addClass("animated bounceIn")
 })
+
+$(".launch-site").on("click", function () {
+    href = $(this).attr("launch-site");
+    console.log(href)
+    window.href
+})

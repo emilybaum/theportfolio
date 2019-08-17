@@ -58,6 +58,31 @@ font-family: 'Saira Stencil One', cursive;
     color: #143e49;
 }
 
+/* Modals */
+.techGroup {
+    display: flex;
+    /* flex-direction: row; */
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.listTech {
+    margin: 4px;
+    background: #9ab3b9;
+    color: white;
+    padding: 2px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    border-radius: 5px;
+    height: 1.5rem;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: center;
+}
+/* ===== */
+
 .text-enhance {
     color: #438496;
 }
