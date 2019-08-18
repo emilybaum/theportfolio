@@ -41,7 +41,7 @@
                     <a class="nav-link" href="portfolio">Portfolio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="contact">Contact</a>
+                    <a class="nav-link" href="about">About Me</a>
                 </li>
             </ul>
         </div>
@@ -49,47 +49,102 @@
 
     <div class="container">
         <div class="row pt-5">
-            <div class="col-sm">
-                <h1 class="projects-h1 animated bounceIn">About <span class="text-enhance">me</span>.</h1>
+            <div class="emily-webdev-contain eb-hidden-contain">
+                <span id="this1" class="text-animation">A</span>
+                <span id="this2" class="text-animation">b</span>
+                <span id="this3" class="text-animation">o</span>
+                <span id="this4" class="text-animation">u</span>
+                <span id="this5" class="text-animation">t</span>
+                <span id="this6" class="text-animation text-enhance pl-3">m</span>
+                <span id="this7" class="text-animation text-enhance">e</span>
+                <span id="this8" class="text-animation">.</span>
             </div>
         </div>
 
         <div class="row">
             <div class="col-sm-12">
-                <h1>Choose your own adventure</h1>
+                <h1 class="versionTitle pt-4">Choose your own adventure</h1>
             </div>
         </div>
 
         <div class="row">
             <div class="col-sm-6">
-                <div id="shortVersion" class="aboutVersions">
+                <div id="shortVersion" data-toggle="modal" data-target="#shortVersionModal" class="aboutVersions">
                     <h2 class="versionTitle">Short option</h2>
-                    <p class="versionP">The quick overview</p>
+                    <p class="versionP">The quick overview (2 min)</p>
                 </div>
             </div>
 
             <div class="col-sm-6">
-                <div id="lingVersion" class="aboutVersions">
+                <div id="longVersion" data-toggle="modal" data-target="#longVersionModal" class="aboutVersions">
                     <h2 class="versionTitle">Long option</h2>
-                    <p class="versionP">How I got into programming</p>              
+                    <p class="versionP">How I got into programming (7 min)</p>              
                 </div>
             </div>
         
         </div>
 
-        
-        <div>My story</div>
-        <div>How I got into programming</div>
+       
 
 
-
-
-        <!-- LARGET MODAL -->
+        <!-- SMALL MODAL -->
         <!-- Button -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-long-modal-lg">Long: How I got into programming</button>
+        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#shortVersion">Long: How I got into
+            programming</button> -->
+        
+        <!-- Content -->
+        <div class="modal fade" id="shortVersionModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content eb-aboutContent">
+                    <div class="modal-header">
+                        <h5 class="modalTitle">The quick overview</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+        
+                    <div class="modal-body">
+                        <p>
+                            I'm a Full Stack Web Developer with an end-user perspective, eye for detail, and desire to solve problems. I am passionate
+                            about new technology and continuously learning how things work.
+                        </p>
+                        <p>
+                            Currntly, I'm working at LinkedIn where my team has developed the LinkedIn Talent Hub platform from early stages to (eventual)
+                            global release through the collection of extensive user feedback, documentation of bugs, expression of user pain points,
+                            and appropriate feature enhancement prioritization. My collaboration with cross-functional teams from Engineering,
+                            Product, and Design is key to the success of this platform.
+                        </p>
+                        <p>
+                            Learning how to code has been a life goal of mine and I’m making that dream a reality through a 6 month intensive Full
+                            Stack Boot Camp with Columbia Engineering. My career (thus far) at LinkedIn has given me a clear understanding of how
+                            end-users engage with various platforms and unique insight into how certain feature enhancements can directly fuel
+                            delight for users. Paired with my technical skills (including HTML5, CSS3, JavaScript, jQuery, Java, Bootstrap,
+                            Express.js, React.js, Database Theory, MongoDB, and MySQL), I am able to help create scalable solutions which enable
+                            end-users to do their best work.
+                        </p>
+                        <p>
+                            I believe that there is always a way to solution for anything, even if that is not what you were originally thinking it
+                            would be. Here’s to new challenges and problems to solve!
+                        </p>
+                    </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- LARGE MODAL -->
+        <!-- Button -->
+        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#longVersion">Long: How I got into programming</button> -->
 
         <!-- Content -->
-        <div class="modal fade bd-long-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        <div class="modal fade" id="longVersionModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content eb-aboutContent">
@@ -209,6 +264,25 @@
 
 
 
+
+
+        <!-- FOOTER  BOX -->
+        <div>
+            <footer class="footer footerEmily text-white bg-dark text-center w-100 pb-1 mb-0 pt-2 mt-5 footer-text-eb">
+                <p class="mb-1 pt-3">
+                    <a href="https://github.com/emilybaum" target="_blank"><img class="socialLinks mb-0 mx-1 my-1"
+                            src="images/github-icon.jpg"></a>
+                    <a href="https://www.linkedin.com/in/emilybaum/" target="_blank"><img class="socialLinks mb-0 mx-1 my-1"
+                            src="images/in-logo.png"></a>
+                    <a class="instagram" href="https://www.instagram.com/e_baum" target="_blank"><img
+                            class="socialLinks mb-0 mx-1 my-1" src="images/instagram-logo-new.png"></a>
+                    <a href="https://www.facebook.com/Baumgartner.Emily" target="_blank"><img class="socialLinks mb-0 mx-1 my-1"
+                            src="images/facebook-logo.png"></a>
+                </p>
+                <p class="mb-1">Copyright &#9400; Emily Baumgartner</p>
+            </footer>
+        
+        </div> <!-- end footer  box -->
 
     </div> <!-- end container -->
 
