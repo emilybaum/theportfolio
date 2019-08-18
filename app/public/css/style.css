@@ -206,6 +206,7 @@ font-family: 'Saira Stencil One', cursive;
     margin: 5px;
     margin-bottom: 15px;
     padding: 0px;
+    cursor: pointer;
 }
 
 .borderKey {
@@ -235,6 +236,7 @@ font-family: 'Saira Stencil One', cursive;
 
 .projects-display:hover {
     border: solid 10px #c99b61
+
 }
 
 .project-image {
