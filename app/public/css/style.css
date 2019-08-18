@@ -35,7 +35,7 @@ font-family: 'Saira Stencil One', cursive;
 }
 
 .emily-passion {
-    width: 60%;
+    width: 100%;
     font-family: 'Permanent Marker', cursive;
     font-size: 35px;
     color: #343A40;
@@ -43,12 +43,13 @@ font-family: 'Saira Stencil One', cursive;
 }
 
 #projectVisable {
-    padding: .5rem;
+    padding: 1rem;
     font-size: 20px;
-    width: 60%;
+    width: 80%;
     background: #c99b61;
     border: 3px solid #cec3b7;
     font-family: 'Permanent Marker', cursive;
+    margin-left: 30px;
 }
 
 #projectVisable:hover {
@@ -157,7 +158,17 @@ font-family: 'Saira Stencil One', cursive;
         background: #9ab3b9;
         height: 400px;
         cursor: pointer;
+        border: 1px solid #143e49;
+        margin: 3px;
     }
+
+    /* #longVersion {
+        background: #a4a2a1
+    }
+
+    #shortVersion {
+        background: #9ab3b9
+    } */
 
     #longVersion:hover {
         background: #c99b61
@@ -241,10 +252,6 @@ font-family: 'Saira Stencil One', cursive;
 
 /* FOOTER DETAILS */
 
-/* .eb-bodyHeight {
-    height: 80vh;
-} */
-
 html, body {
     height: 100%;
 }
@@ -261,7 +268,7 @@ html, body {
 } */
 
 .footerEmily {  
-    border-top: 4px solid #438496;
+    border-top: 7px solid white;
     position: relative;
     height: 100px;
     margin-top: -100px;
@@ -276,10 +283,11 @@ html, body {
     font-size: 14px;
     font-family: 'Permanent Marker', cursive;
     letter-spacing: 0.1em;
+    color: #9A9DA1;
 }
 
 .img-group {
-    background: #343A40;
+    background: #343a40;
     margin-bottom: 1rem;
     padding-top: .5rem;
     margin-left: 1rem;
