@@ -45,11 +45,11 @@ font-family: 'Saira Stencil One', cursive;
 #projectVisable {
     padding: 1rem;
     font-size: 20px;
-    width: 80%;
+    width: 70%;
     background: #c99b61;
     border: 3px solid #cec3b7;
     font-family: 'Permanent Marker', cursive;
-    margin-left: 30px;
+    margin-left: 2rem;
 }
 
 #projectVisable:hover {
@@ -300,6 +300,6 @@ html, body {
     width: 30px;
 }
 
-/* body {
-    height: 90vh;
-} */
+
+/* --------------------- testingthe gradinet */
+
