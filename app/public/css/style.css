@@ -38,12 +38,13 @@ font-family: 'Saira Stencil One', cursive;
     font-family: 'Permanent Marker', cursive;
     font-size: 35px;
     color: #343A40;
+    display: inline;
 }
 
 #projectVisable {
     padding: .5rem;
     font-size: 20px;
-    width: 70%;
+    width: 60%;
     background: #c99b61;
     border: 3px solid #cec3b7;
     font-family: 'Permanent Marker', cursive;
@@ -54,10 +55,11 @@ font-family: 'Saira Stencil One', cursive;
     border: 3px solid #143e49;
 }
 
-/* .eb-space-between {
+.eb-space-between {
     justify-content: space-between;
-    flex-direction: row;
-} */
+    flex-direction: row wrap;
+    display: flex;
+}
 
 .emily-tagline {
     width: 80%;
