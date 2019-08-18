@@ -1,43 +1,37 @@
 $(document).ready(function () {
 
-    // function pageLoadAnimate() {
 
-    // }
-    
-    // function makeVisible() {
-    //     $(".eb-hidden").each(function (i, value) {
-    //         // console.log(value)
-    //         // thisElement = value.attr("id")
-        
-    //         setTimeout(function () { 
-    //             // console.log(thisElement)
-    //         $("#this" + [i]).removeClass("eb-hidden")
-
-    //         }, 1000);
-    //     })
-    // }
-    // makeVisible()
-
-    function makeVisible() {
-        console.log("make visible")
+// UPDATED
+    function makeVisibleName() {
         for (var j = 1; j <= 12; j++) {
             thisElement = $("#this" + [j])
-            console.log("the element: " + thisElement)
-            otherFunction(j)
+            timeDelayAnimation(j)
         }
     }
-    makeVisible()
+    makeVisibleName()
 
-    function otherFunction(value) {
+    function timeDelayAnimation(value) {
         setTimeout(function () {
             $("#this" + [value]).removeClass("eb-hidden")
-            
-        }, 100*value);
+        }, 200*value);
     }
+
+    function makeVisableProject() {
+        console.log("make visable project")
+        setTimeout(function () {
+            $("#projectVisable").removeClass("eb-hidden")
+            $("#techVisable").removeClass("eb-hidden")
+
+            $("#projectVisable").addClass("animation")
+            $("#techVisable").addClass("animation")
+        }, 4000);
+    }
+    makeVisableProject()
 
 
     // // ENTRY FOR ANIMATION ON LETTERS
     $(".text-animation").hover(function () {
+        console.log("hover")
         var thisElement = $(this).attr("id");
         animateCSS(thisElement, 'rubberBand', callback)
     })
