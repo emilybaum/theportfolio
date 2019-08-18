@@ -5,8 +5,7 @@ font-family: 'Saira Stencil One', cursive;
  */
 
 .background {
-    background-image: linear-gradient(to bottom right, #ececec, #bfe0e9);
-    /* height: 200vh; */
+    background-color: #bfe0e975;
 }
 
 .eb-navlogo {
