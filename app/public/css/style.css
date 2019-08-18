@@ -263,6 +263,10 @@ font-family: 'Saira Stencil One', cursive;
 
 /* FOOTER DETAILS */
 
+.footerEscape {
+    height: 75vh;
+}
+
 .footerEmily {  
     border-top: 7px solid white;
     position: relative;
