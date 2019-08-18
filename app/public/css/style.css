@@ -42,6 +42,18 @@ font-family: 'Saira Stencil One', cursive;
     display: inline;
 }
 
+.flex-letters {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+}
+
+.flex-words {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
 #projectVisable {
     padding: 1rem;
     font-size: 20px;
