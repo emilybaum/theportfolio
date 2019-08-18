@@ -23,7 +23,7 @@ $(document).ready(function () {
             $("#techVisable").removeClass("eb-hidden")
 
             $("#projectVisable").addClass("animated slideInRight")
-            $("#techVisable").addClass("animated slideInLeft")
+            $("#techVisable").addClass("animated fadeInDownBig")
         }, 3500);
     }
     makeVisableProject()

@@ -70,12 +70,13 @@ font-family: 'Saira Stencil One', cursive;
 
 .eb-space-between {
     justify-content: space-between;
-    flex-direction: row wrap;
+    flex-wrap: wrap;
     display: flex;
+    align-items: center;
 }
 
 .emily-tagline {
-    width: 80%;
+    width: 90%;
     font-family: 'Alfa Slab One', cursive;
     border-left: #343A40 5px solid;
     color: #143e49;
