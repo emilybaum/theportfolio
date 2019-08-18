@@ -56,11 +56,11 @@ font-family: 'Saira Stencil One', cursive;
 #projectVisable {
     padding: 1rem;
     font-size: 20px;
-    width: 70%;
+    /* width: 70%; */
     background: #c99b61;
     border: 3px solid #cec3b7;
     font-family: 'Permanent Marker', cursive;
-    margin-left: 2rem;
+    /* margin-left: 2rem; */
 }
 
 #projectVisable:hover {
@@ -68,12 +68,12 @@ font-family: 'Saira Stencil One', cursive;
     border: 3px solid #143e49;
 }
 
-.eb-space-between {
+/* .eb-space-between {
     justify-content: space-between;
     flex-wrap: wrap;
     display: flex;
     align-items: center;
-}
+} */
 
 .emily-tagline {
     width: 90%;
@@ -267,11 +267,11 @@ font-family: 'Saira Stencil One', cursive;
 /* FOOTER DETAILS */
 
 .footerEscape {
-    margin-bottom: 20vh;
+    margin-bottom: 24vh;
 }
 
 .footerEmily {  
-    border-top: 7px solid white;
+    border-top: 7px solid #438496;
     position: relative;
     height: 100px;
     margin-top: -100px;
