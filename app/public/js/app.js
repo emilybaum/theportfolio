@@ -22,9 +22,9 @@ $(document).ready(function () {
             $("#projectVisable").removeClass("eb-hidden")
             $("#techVisable").removeClass("eb-hidden")
 
-            $("#projectVisable").addClass("animation")
-            $("#techVisable").addClass("animation")
-        }, 4000);
+            $("#projectVisable").addClass("animated slideInRight")
+            $("#techVisable").addClass("animated slideInLeft")
+        }, 3500);
     }
     makeVisableProject()
 
