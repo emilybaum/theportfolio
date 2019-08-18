@@ -34,11 +34,30 @@ font-family: 'Saira Stencil One', cursive;
 }
 
 .emily-passion {
-    width: 80%;
+    width: 60%;
     font-family: 'Permanent Marker', cursive;
     font-size: 35px;
     color: #343A40;
 }
+
+#projectVisable {
+    padding: .5rem;
+    font-size: 20px;
+    width: 70%;
+    background: #c99b61;
+    border: 3px solid #cec3b7;
+    font-family: 'Permanent Marker', cursive;
+}
+
+#projectVisable:hover {
+    background: #438496;
+    border: 3px solid #143e49;
+}
+
+/* .eb-space-between {
+    justify-content: space-between;
+    flex-direction: row;
+} */
 
 .emily-tagline {
     width: 80%;
