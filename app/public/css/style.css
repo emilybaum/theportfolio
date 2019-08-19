@@ -200,6 +200,12 @@ font-family: 'Saira Stencil One', cursive;
     justify-content: space-around;
 }
 
+/* removed the border for hte cards - but this will affect ALL CARDS */
+.card {
+    border: 0px;
+}
+/* --------- */
+
 .projects-display {
     overflow: hidden;
     height: 300px;;
