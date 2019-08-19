@@ -1,32 +1,52 @@
 $(document).ready(function () {
 
 
-// UPDATED
+    // NAME TEXT -------------------------------
     function makeVisibleName() {
         for (var j = 1; j <= 12; j++) {
             thisElement = $("#this" + [j])
-            timeDelayAnimation(j)
+            timeDelayAnimationName(j)
         }
     }
     makeVisibleName()
 
-    function timeDelayAnimation(value) {
+    function timeDelayAnimationName(value) {
         setTimeout(function () {
             $("#this" + [value]).removeClass("eb-hidden")
         }, 200*value);
     }
+    // -----------------------------------------
 
+
+    // FULL STACK TEXT -------------------------
+    function makeVisibleFullStack() {
+        for (var j = 1; j <= 4; j++) {
+            thisElement = $("#dev" + [j])
+            timeDelayAnimationTech(j)
+        }
+    }
+    makeVisibleFullStack()
+
+    function timeDelayAnimationTech(value) {
+        setTimeout(function () {
+            $("#dev" + [value]).removeClass("eb-hidden")
+        }, 400 * value);
+    }
+    // -----------------------------------------
+
+    // PROJECT BUTTON --------------------------
     function makeVisableProject() {
         console.log("make visable project")
         setTimeout(function () {
             $("#projectVisable").removeClass("eb-hidden")
-            $("#techVisable").removeClass("eb-hidden")
+            // $("#techVisable").removeClass("eb-hidden")
 
             $("#projectVisable").addClass("animated slideInRight")
-            $("#techVisable").addClass("animated fadeInDownBig")
+            // $("#techVisable").addClass("animated fadeInDownBig")
         }, 3500);
     }
     makeVisableProject()
+    // ----------------------------------------
 
 
     // // ENTRY FOR ANIMATION ON LETTERS
@@ -37,7 +57,7 @@ $(document).ready(function () {
     })
 
 
-
+    // HOVER ANIMATION EFFECT
     function animateCSS(element, animationName, callback) {
         const node = document.getElementById(element)
         node.classList.add('animated', animationName)
@@ -52,25 +72,20 @@ $(document).ready(function () {
         node.addEventListener('animationend', handleAnimationEnd)
     }
 
-
     function callback() {
-        console.log("callback successful")
+        console.log("SO FUN!")
     }
 
 
-
-
-    // ===============================
-    // bootstrap modal
+    // BOOTSTRAP MODAL
     $('#myModal').on('shown.bs.modal', function () {
         $('#myInput').trigger('focus')
     })
 
-    // PORTFOLIO
+    // PORTFOLIO ENTRY POINT - HOVER
     $(".projects-display").on("hover", function () {
         $(this).removeClass("hidden")
         $(this).addClass("animated bounceIn")
     })
-
-
+    
 });
