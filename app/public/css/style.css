@@ -4,6 +4,12 @@ font-family: 'Permanent Marker', cursive;
 font-family: 'Saira Stencil One', cursive;
  */
 
+/* ADDED THIS TO GET RID OF THE HORIZONTAL SCROLL BAR */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 .background {
     background-color: #bfe0e975;
 }
@@ -19,7 +25,7 @@ font-family: 'Saira Stencil One', cursive;
 }
 
 .emily-webdev-contain {
-    width: 100%;
+    /* width: 100%; */
     display: inline-flex;
     flex-direction: row wrap;
     justify-content: flex-start;
@@ -77,19 +83,33 @@ font-family: 'Saira Stencil One', cursive;
 
 .emily-tagline {
     width: 90%;
-    font-family: 'Alfa Slab One', cursive;
-    border-left: #343A40 5px solid;
     color: #143e49;
+    border-left: #343A40 5px solid;
+    margin-bottom: 24vh;
+}
+
+.emily-taglineFont {
+    font-family: 'Alfa Slab One', cursive;
     font-size: 40px;
-    /* color: #143e49; */
 }
 
 .text-animation {
+    /* used in the javascript */
+}
+
+.text-animationLarge {
     font-family: 'Alfa Slab One', cursive;
     font-size: 70px;
     color: #143e49;
     padding: 1px;
 }
+
+/* .text-animationSmall {
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 70px;
+    color: #143e49;
+    padding: 1px;
+} */
 
 .eb-hidden {
     display: none;
@@ -273,15 +293,16 @@ font-family: 'Saira Stencil One', cursive;
 /* FOOTER DETAILS */
 
 .footerEscape {
-    margin-bottom: 24vh;
+    /* margin-bottom: 24vh; */
 }
 
 .footerEmily {  
     border-top: 7px solid #438496;
     position: relative;
     height: 100px;
-    margin-top: -100px;
+    /* margin-top: -100px; */
     clear: both;
+    width: 100%
 }
 
 .code-link p {
