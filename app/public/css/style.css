@@ -86,12 +86,12 @@ html, body {
     color: #143e49;
     border-left: #343A40 10px solid;
     border-radius: .75%;
-    margin-bottom: 24vh;
 }
 
 .emily-taglineFont {
     font-family: 'Alfa Slab One', cursive;
     font-size: 40px;
+    cursor: default;
 }
 
 .text-animation {
