@@ -86,6 +86,7 @@ html, body {
     color: #143e49;
     border-left: #343A40 10px solid;
     border-radius: .75%;
+    margin-bottom: 10vh;
 }
 
 .emily-taglineFont {
@@ -293,10 +294,6 @@ html, body {
 
 
 /* FOOTER DETAILS */
-
-.footerEscape {
-    /* margin-bottom: 24vh; */
-}
 
 .footerEmily {  
     border-top: 7px solid #438496;
