@@ -84,7 +84,8 @@ html, body {
 .emily-tagline {
     width: 90%;
     color: #143e49;
-    border-left: #343A40 5px solid;
+    border-left: #343A40 10px solid;
+    border-radius: .75%;
     margin-bottom: 24vh;
 }
 
@@ -275,6 +276,7 @@ html, body {
     text-align: center;
 }
 
+/* this may not be used... */
 .project-button {
     position: relative;
     top: 0px;
