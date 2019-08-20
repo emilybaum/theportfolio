@@ -185,24 +185,19 @@ html, body {
         background: #9ab3b9;
         height: 400px;
         cursor: pointer;
-        border: 1px solid #143e49;
+        border: 3px solid #143e4950;
         margin: 3px;
+        border-radius: 5px;
     }
-
-    /* #longVersion {
-        background: #a4a2a1
-    }
-
-    #shortVersion {
-        background: #9ab3b9
-    } */
 
     #longVersion:hover {
-        background: #c99b61
+        background: #c99b6190;
+        border: solid 10px #c99b61
     }
 
     #shortVersion:hover {
-        background: #c99b61
+        background: #c99b6190;
+        border: solid 10px #c99b61
     }
 /* === */
 
