@@ -16,3 +16,5 @@ This is a fun and interactive web page (mobile responsive) that showcases all of
 ```jQuery```
 ```HTML5```
 ```CSS3```
+
+
