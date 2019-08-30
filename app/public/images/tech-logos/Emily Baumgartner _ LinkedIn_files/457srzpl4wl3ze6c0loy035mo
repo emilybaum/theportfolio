@@ -1,0 +1,68 @@
+define("artdeco-entity-pile/components/artdeco-entity-pile",["exports","artdeco-entity-pile/templates/components/artdeco-entity-pile"],function(e,t){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var i=Ember.Component.extend({layout:t.default,tagName:"ul",attributeBindings:["_tabindex:tabindex"],classNames:["artdeco-entity-pile"],classNameBindings:["stacked:artdeco-entity-pile--stacked"],size:2,shape:"circle",stacked:!1,_hasIndividualTouchTargets:Ember.computed("size","stacked",(function(){return!Ember.get(this,"stacked")&&Ember.get(this,"size")>2})).readOnly(),_tabindex:Ember.computed("_hasIndividualTouchTargets",(function(){return Ember.get(this,"_hasIndividualTouchTargets")?-1:0})).readOnly(),_hasRollup:Ember.computed("entities.[]","_maxEntities",(function(){return Ember.get(this,"entities").length>Ember.get(this,"_maxEntities")})).readOnly(),_rollupCount:Ember.computed("entities.[]","_maxEntities",(function(){return Ember.get(this,"entities").length-(Ember.get(this,"_maxEntities")-1)})).readOnly(),_entities:Ember.computed("_hasRollup","entities.[]","_maxEntities",(function(){var e=Ember.get(this,"entities")
+return Ember.get(this,"_hasRollup")?e.slice(0,Ember.get(this,"_maxEntities")-1):e})),_maxEntities:Ember.computed("maxEntities","stacked",(function(){var e=this.get("maxEntities"),t=this.get("stacked"),i=t?12:8
+return e||i})),click:function(){Ember.get(this,"_hasIndividualTouchTargets")||Ember.tryInvoke(this,"onEntityClick")},keyDown:function(e){13===e.keyCode&&this.click(e)},actions:{entityClick:function(e){Ember.get(this,"_hasIndividualTouchTargets")&&Ember.tryInvoke(this,"onEntityClick",[e])},entityKeyDown:function(e,t){13===t.keyCode&&Ember.get(this,"_hasIndividualTouchTargets")&&Ember.tryInvoke(this,"onEntityClick",[e])},rollupClick:function(e){Ember.get(this,"_hasIndividualTouchTargets")&&Ember.tryInvoke(this,"onRollupClick",[e])},rollupKeyDown:function(e,t){13===t.keyCode&&Ember.get(this,"_hasIndividualTouchTargets")&&Ember.tryInvoke(this,"onRollupClick",[e])}}})
+e.default=i})
+define("artdeco-entity-pile/templates/components/artdeco-entity-pile",["exports"],function(e){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var t=Ember.HTMLBars.template({id:"bwRx2OJh",block:'{"symbols":["entity","&default"],"statements":[[4,"each",[[23,["_entities"]]],null,{"statements":[[0,"  "],[7,"li"],[12,"tabindex",[28,[[27,"if",[[23,["_hasIndividualTouchTargets"]],0],null]]]],[12,"class",[28,["artdeco-entity-pile__entity artdeco-entity-pile__entity--",[21,"size"]," ",[27,"if",[[23,["onEntityClick"]],"artdeco-entity-pile__entity--has-action"],null]]]],[12,"onkeyDown",[27,"action",[[22,0,[]],"entityKeyDown",[22,1,[]]],null]],[3,"action",[[22,0,[]],"entityClick",[22,1,[]]]],[9],[0,"\\n"],[4,"if",[[24,2]],null,{"statements":[[0,"      "],[14,2,[[22,1,[]],[23,["shape"]],[23,["size"]],[23,["index"]]]],[0,"\\n"]],"parameters":[]},{"statements":[[0,"      "],[7,"img"],[12,"class",[28,["artdeco-entity-pile__image artdeco-entity-pile__image--",[21,"shape"]," artdeco-entity-pile__image--",[21,"size"]]]],[12,"src",[22,1,["img"]]],[12,"alt",[22,1,["title"]]],[9],[10],[0,"\\n"]],"parameters":[]}],[0,"  "],[10],[0,"\\n"]],"parameters":[1]},null],[4,"if",[[23,["_hasRollup"]]],null,{"statements":[[0,"  "],[7,"li"],[12,"tabindex",[28,[[27,"if",[[23,["_hasIndividualTouchTargets"]],0],null]]]],[12,"class",[28,["artdeco-entity-pile__entity artdeco-entity-pile__entity--",[21,"size"]," ",[27,"if",[[23,["onRollupClick"]],"artdeco-entity-pile__entity--has-action"],null]]]],[12,"onkeyDown",[27,"action",[[22,0,[]],"rollupKeyDown",[23,["_rollupCount"]]],null]],[3,"action",[[22,0,[]],"rollupClick",[23,["_rollupCount"]]]],[9],[0,"\\n    "],[7,"div"],[12,"class",[28,["artdeco-entity-pile__image artdeco-entity-pile__image--",[21,"shape"]," artdeco-entity-pile__image--",[21,"size"]]]],[9],[0,"\\n      "],[7,"div"],[12,"class",[28,["artdeco-entity-pile__rollup artdeco-entity-pile__rollup--",[21,"shape"]," artdeco-entity-pile__rollup--",[21,"size"]]]],[9],[0,"\\n        "],[1,[27,"t",["i18n_rollup_total","artdeco-entity-pile/templates/components/artdeco-entity-pile"],[["count"],[[23,["_rollupCount"]]]]],false],[0,"\\n      "],[10],[0,"\\n    "],[10],[0,"\\n  "],[10],[0,"\\n"]],"parameters":[]},null]],"hasEval":false}',meta:{moduleName:"artdeco-entity-pile/templates/components/artdeco-entity-pile.hbs"}})
+e.default=t})
+define("conversations/components/quick-replies",["exports","ember-batcher","msg-shared/utils/constants","conversations/templates/components/quick-replies"],function(e,t,i,n){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var s=i.default.IMPRESSION_KEYS.CONTEXTUAL_RECOMMENDATION_IMPRESSION,l=Ember.Component.extend({layout:n.default,lix:Ember.inject.service("lix"),store:Ember.inject.service("store"),tracking:Ember.inject.service("tracking"),classNames:["conversations-quick-replies","justify-center","display-flex","align-items-center","p2"],disableScrollLeft:!0,disableScrollRight:!1,animateIn:!0,filteredQuickReplies:Ember.computed.filter("quickReplies.[]",(function(e){var t=e.reply
+if(t){var i=t.get("replyType")
+if("VOICE"===i)return!1
+if(!this.get("openGIFPopover")&&"GIF"===i)return!1}return!0})).readOnly(),init:function(){this._super.apply(this,arguments)
+this.get("tracking").setupTrackableComponent(this)
+this._cachedContextWidth=this.get("contextWidth")},didInsertElement:function(){this._super.apply(this,arguments)
+this.scrollingElement=this.element.querySelector(".conversations-quick-replies__container")},didReceiveAttrs:function(){this._super.apply(this,arguments)
+var e=this.get("eventId")
+this.shouldUpdate=!e||e!==this.lastQRId
+if(this.shouldUpdate){this.set("animateIn",!1)
+this.lastQRId=e}},didUpdateAttrs:function(){this._super.apply(this,arguments)
+if(this._cachedContextWidth!==this.get("contextWidth")){this._checkOverflow()
+this._cachedContextWidth=this.get("contextWidth")}},didRender:function(){this._super.apply(this,arguments)
+if(this.shouldUpdate){this._checkOverflow()
+this.shouldUpdate=!1}},onExposed:function(){var e=this.get("useCase")
+if(e){var t=this.get("filteredQuickReplies"),i=this.get("tracking")
+t.forEach((function(t){var n=t.reply
+i.fireTrackingPayload(s,{recommendedEntity:{recommendedEntityUrn:n.get("objectUrn"),recommendationTrackingId:n.get("recommendationTrackingId"),usecase:e,visibleTime:0,duration:0,listPosition:{index:0}}})}))}},_checkOverflow:function(){var e=this
+this.set("hasOverflow",!1);(0,t.mutateDOM)((function(){e.isDestroying||Ember.run((function(){e.set("hasOverflow",e.scrollingElement.scrollWidth>e.scrollingElement.clientWidth)}))}))},_updateScrollButtons:function(){var e=this.scrollingElement.scrollWidth-this.scrollingElement.clientWidth,t=!1,i=!1
+0===this.scrollingElement.scrollLeft?t=!0:this.scrollingElement.scrollLeft===e&&(i=!0)
+this.setProperties({disableScrollLeft:t,disableScrollRight:i})},actions:{sendQuickReply:function(e,t){this.get("saveReply")(e,t,this.get("useCase"))},scrollHandler:function(e){var i=this;(0,t.mutateDOM)((function(){if(!i.isDestroying){var t=i.scrollingElement.scrollLeft,n="LEFT"===e?t-120:t+120
+i.scrollingElement.scrollLeft=n
+i._updateScrollButtons()}}))}}})
+e.default=l})
+define("conversations/templates/components/quick-replies",["exports"],function(e){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var t=Ember.HTMLBars.template({id:"n00UOonL",block:'{"symbols":["reply"],"statements":[[4,"if",[[23,["hasOverflow"]]],null,{"statements":[[4,"artdeco-button@artdeco-button",null,[["class","color","type","disabled","click"],["conversations-quick-replies__control-icon mr2","muted","tertiary",[23,["disableScrollLeft"]],[27,"action",[[22,0,[]],"scrollHandler","LEFT"],null]]],{"statements":[[0,"    "],[1,[27,"ember-cli-pemberly-artdeco@li-icon",null,[["type","size","a11y-text"],["chevron-left-icon","small",[27,"t",["i18n_scroll_quick_replies_left","conversations/templates/components/quick-replies"],null]]]],false],[0,"\\n"]],"parameters":[]},null]],"parameters":[]},null],[7,"ul"],[12,"class",[28,["conversations-quick-replies__container relative list-style-none display-flex justify-flex-start overflow-hidden mhA",[27,"if",[[23,["animateIn"]]," msg-animation__qr"],null]]]],[9],[0,"\\n"],[4,"each",[[23,["filteredQuickReplies"]]],null,{"statements":[[0,"    "],[7,"li"],[11,"class","conversations-quick-replies__reply"],[9],[0,"\\n"],[4,"if",[[27,"global-helpers@eq",[[22,1,["reply","replyType"]],"GIF"],null]],null,{"statements":[[0,"        "],[7,"button"],[11,"class","conversations-quick-replies__reply-button conversations-quick-replies__reply-button--rich-props artdeco-button artdeco-button--2 artdeco-button--secondary"],[11,"data-control-name","smart_action_gif"],[3,"action",[[22,0,[]],[23,["openGIFPopover"]],[22,1,["reply","quickActionPrefillText"]],[27,"tracking",null,[["control-name"],["smart_action_gif"]]]]],[9],[0,"\\n          "],[1,[27,"ember-cli-pemberly-artdeco@li-icon",null,[["type","size","class"],["gif-icon","small","conversations-quick-replies__rich-props-icon"]]],false],[0,"\\n          "],[7,"hr"],[11,"class","conversation-quick-replies__rich-props-vertical-divider"],[9],[10],[0,"\\n          "],[7,"span"],[11,"class","a11y-text"],[9],[1,[27,"t",["i18n_a11y_reply_context","conversations/templates/components/quick-replies"],[["contentText"],[[22,1,["reply","quickActionPrefillText"]]]]],false],[10],[0,"\\n          "],[7,"span"],[11,"aria-hidden","true"],[11,"class","ml2 mr3"],[9],[1,[27,"t",["i18n_a11y_search_gif_text","conversations/templates/components/quick-replies"],[["prefilledText"],[[22,1,["reply","quickActionPrefillText"]]]]],false],[10],[0,"\\n        "],[10],[0,"\\n"]],"parameters":[]},{"statements":[[4,"artdeco-button@artdeco-button",null,[["class","type","data-control-name","click"],["conversations-quick-replies__reply-button","secondary",[23,["controlActionEventName"]],[27,"action",[[22,0,[]],"sendQuickReply",[22,1,["reply"]],[23,["conversation"]]],null]]],{"statements":[[0,"          "],[7,"span"],[11,"class","a11y-text"],[9],[1,[27,"t",["i18n_a11y_reply_context","conversations/templates/components/quick-replies"],[["contentText"],[[22,1,["text"]]]]],false],[10],[0,"\\n          "],[7,"span"],[11,"aria-hidden","true"],[9],[1,[22,1,["text"]],false],[10],[0,"\\n"]],"parameters":[]},null]],"parameters":[]}],[0,"    "],[10],[0,"\\n"]],"parameters":[1]},null],[10],[0,"\\n\\n"],[4,"if",[[23,["hasOverflow"]]],null,{"statements":[[4,"artdeco-button@artdeco-button",null,[["class","color","type","disabled","click"],["conversations-quick-replies__control-icon ml2","muted","tertiary",[23,["disableScrollRight"]],[27,"action",[[22,0,[]],"scrollHandler","RIGHT"],null]]],{"statements":[[0,"    "],[1,[27,"ember-cli-pemberly-artdeco@li-icon",null,[["type","size","a11y-text"],["chevron-right-icon","small",[27,"t",["i18n_scroll_quick_replies_right","conversations/templates/components/quick-replies"],null]]]],false],[0,"\\n"]],"parameters":[]},null]],"parameters":[]},null]],"hasEval":false}',meta:{moduleName:"conversations/templates/components/quick-replies.hbs"}})
+e.default=t})
+define("target-lix/services/target-lix",["exports","ember-stdlib/utils/is-browser","shared/utils/get-csrf-token","global-utils/utils/get-app-config"],function(e,t,i,n){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var s=Ember.Service.extend({pemberlyNetwork:Ember.inject.service("pemberly-network"),init:function(){this._super.apply(this,arguments)
+this.set("_cache",void 0)},_getTestKeys:function(e){return e?Object.keys(this._cache[e]):Object.keys(this._cache.member)},appendToCache:function(e,t){void 0===t&&(t="member")
+if(this._cache)this.set("_cache."+t,Ember.assign(this._cache[t]||{},e))
+else{var i={}
+i[t]=e
+this.set("_cache",i)}},store:Ember.inject.service("store"),fetchLixData:function(e,t){return this._fetchLixData(e,{target:t},t)},fetchLixDataByCompanyName:function(e,t){return this._fetchLixData(e,{companyUniversalName:t},t)},_fetchLixData:function(e,s,l){var r=this
+if(this._cache&&this._cache[l])return Ember.RSVP.resolve()
+var a="/"+n.default.namespace+"/lixTreatments",o=e||this._getTestKeys()
+if(!o.length)return Ember.RSVP.resolve()
+var c={type:"GET",data:Ember.assign({ids:o},s),headers:{"X-RestLi-Protocol-Version":"2.0.0"}}
+t.default&&Ember.assign(c.headers,{"Csrf-Token":(0,i.default)()})
+return this.get("pemberlyNetwork").fetch(a,c).then((function(e){var t="object"!=typeof e?JSON.parse(e):e
+r.appendToCache(t.results,l)}))},getTreatment:function(e,t){void 0===t&&(t="member")
+var i,n=this._cache
+n&&n[t]&&(i=this._cache[t][e])
+return"object"==typeof i?i.treatment:i},getTreatmentIsEnabled:function(e,t){void 0===t&&(t="member")
+var i=this.getTreatment(e,t)
+return i&&"control"!==i},getTreatmentIsEnabledByIdOrName:function(e,t,i){return this.getTreatmentIsEnabled(e,t)||this.getTreatmentIsEnabled(e,i)}})
+e.default=s})
+
+//# sourceMappingURL=engine-vendor.map

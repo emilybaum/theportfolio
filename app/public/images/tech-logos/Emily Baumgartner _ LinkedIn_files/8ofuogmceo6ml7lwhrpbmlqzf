@@ -1,0 +1,165 @@
+define.alias("artdeco-button/components/artdeco-button","msg-conversation-ui/components/artdeco-button")
+define.alias("artdeco-modal/components/artdeco-confirmation-dialog","msg-conversation-ui/components/artdeco-confirmation-dialog")
+define.alias("artdeco-modal/components/container","msg-conversation-ui/components/artdeco-modal-container")
+define.alias("artdeco-modal/components/yield","msg-conversation-ui/components/artdeco-modal-yield")
+define.alias("artdeco-modal/components/artdeco-modal","msg-conversation-ui/components/artdeco-modal")
+define("msg-conversation-ui/components/conversation-mute-banner",["exports","msg-conversation-ui/templates/components/conversation-mute-banner"],function(e,t){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var n=Ember.Component.extend({init:function(){this._super.apply(this,arguments)
+this.get("tracking").setupPageViewComponent(this)},tracking:Ember.inject.service("tracking"),layout:t.default,classNames:["msg-s-thread-actions-tray__item","msg-s-thread-actions-tray__item--unmute"],actionTrackingPrefix:"",pageKey:"",renderPageKey:Ember.computed.alias("pageKey").readOnly()})
+e.default=n})
+define("msg-conversation-ui/components/conversation-rename",["exports","ember-stdlib/utils/is-browser","msg-shared/utils/constants","msg-conversation-ui/templates/components/conversation-rename"],function(e,t,n,i){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var s=n.default.KEYCODES.ESC,a=n.default.RENAME_MAX_CHARACTERS,o=Ember.Component.extend({layout:i.default,tagName:"form",classNames:["msg-s-thread-actions-tray__item","msg-s-thread-actions-tray__item--rename"],authenticatedUser:Ember.inject.service("authentication@authenticated-user"),msgDataManager:Ember.inject.service("msg-data@data-manager"),store:Ember.inject.service("store"),tracking:Ember.inject.service("tracking"),actionTrackingPrefix:"",renderPageKey:Ember.computed.alias("pageKey").readOnly(),conversationNameDisplay:Ember.computed("conversation.name",{get:function(){return this.get("conversation.name")},set:function(e,t){return t}}),invalidLength:Ember.computed("conversationNameDisplay.length",(function(){var e=this.get("conversationNameDisplay.length")
+return e<1||e>a})).readOnly(),init:function(){this._super.apply(this,arguments)
+this.get("tracking").setupPageViewComponent(this)},didInsertElement:function(){for(var e=arguments.length,t=new Array(e),n=0;n<e;n++)t[n]=arguments[n]
+this._super(t)
+this._attachListeners()},didRender:function(){for(var e=arguments.length,n=new Array(e),i=0;i<e;i++)n[i]=arguments[i]
+this._super(n)
+if(t.default&&this.element){var s=this.element.querySelector(".msg-s-thread-actions-tray__rename-input")
+s&&s.focus()}},submit:function(e){e.preventDefault()
+this.get("tracking").fireInteractionEvent(this.get("actionTrackingPrefix")+"save_rename")
+if(!this.get("invalidLength")){this.get("msgDataManager").updateConversationName(this.get("conversation"),{newName:this.get("conversationNameDisplay"),senderID:this.get("authenticatedUser.miniProfile.entityUrn")})
+this.hideRenameConversationForm()}},keyDown:function(e){if(e.keyCode===s){e.stopPropagation()
+this.hideRenameConversationForm()}},_attachListeners:function(){t.default&&this.addEventListener(document.body,"click",this._handleOutsideClick.bind(this))},_handleOutsideClick:function(e){this.element.contains(e.target)||this.hideRenameConversationForm()}})
+e.default=o})
+define.alias("ember-wormhole/components/ember-wormhole","msg-conversation-ui/components/ember-wormhole")
+define("msg-conversation-ui/components/inmail-credits-display",["exports","global-utils/utils/urn-converter","msg-conversation-ui/templates/components/inmail-credits-display"],function(e,t,n){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var i=Ember.Component.extend({layout:n.default,classNames:"msg-form__inmail-credits relative",store:Ember.inject.service("store"),identityStore:Ember.inject.service("data-layer@identity-store"),msgDataManager:Ember.inject.service("msg-data@data-manager"),loading:!0,showFreeMessage:Ember.computed.or("isOpenLink","isRecipientOpenToFreeMessages").readOnly(),init:function(){var e=this
+this._super.apply(this,arguments)
+var n=(0,t.fromUrn)(this.get("recipient.entityUrn")).id,i=Ember.get(this,"msgAdapterOptions.recipientOpenToFreeMessages")
+Ember.set(this,"isRecipientOpenToFreeMessages",i)
+i?this.set("loading",!1):Ember.RSVP.all([this._fetchInMailCredits().then((function(t){e.isDestroying||e.set("inmailCredits",t)})),this._fetchIsOpenLink(n).then((function(t){if(!e.isDestroying){e.set("isOpenLink",t)
+t&&e.set("loading",!1)}}))]).then((function(){e.isDestroying||e.set("loading",!1)}))},_fetchInMailCredits:function(){var e=this.get("inmailCredits")
+return e?Ember.RSVP.resolve(e):this.get("msgDataManager").fetchInmailCredits().then((function(e){return e.get("inMail")}),(function(){return 0}))},_fetchIsOpenLink:function(e){return this.get("identityStore").findRecord("com.linkedin.voyager.identity.profile.MemberBadges",e).then((function(e){return e&&e.get("openLink")}),(function(){return!1}))}})
+e.default=i})
+define("msg-conversation-ui/components/nonconnection-banner",["exports","msg-shared/utils/constants","msg-conversation-ui/templates/components/nonconnection-banner"],function(e,t,n){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var i=t.default.MESSAGE_M3_TYPES.CONVERSATION,s=Ember.Component.extend({layout:n.default,tagName:"",store:Ember.inject.service("store"),persistentToastManager:Ember.inject.service("persistent-toast-manager"),invitationPlatform:Ember.inject.service("invitation-platform@invitation-platform"),showNonConnectionBanner:Ember.computed("conversation.isInMail","conversation.isPendingMessageRequest","conversation.withNonConnection",(function(){return!this.get("conversation.isInMail")&&!this.get("conversation.isPendingMessageRequest")&&this.get("conversation.withNonConnection")})),hasPendingInvitationSent:!1,hasPendingInvitationReceived:Ember.computed.bool("conversation.hasPendingInvitationReceived"),init:function(){var e=this
+this._super.apply(this,arguments)
+this.get("invitationPlatform").on("newPendingInvitation",(function(t){e._handleNewPendingInvitation(t)}))},didReceiveAttrs:function(){this._super.apply(this,arguments)
+this.set("hasPendingInvitationSent",this.get("conversation.hasPendingInvitationSent")||this.get("invitationPlatform").hasPendingInvitation(this.get("recipientProfileId")))},willDestroyElement:function(){this._super.apply(this,arguments)
+this.get("invitationPlatform").off("newPendingInvitation")},actions:{acceptConnection:function(e){var t=this
+this.get("invitationPlatform").acceptInvitation(e,"ACTION_INVITATION_ACCEPT").then((function(){if(!t.get("isDestroying")){t._removePendingInvitationFromConversation()
+t.set("conversation.withNonConnection",!1)}})).catch((function(e){t._errorToast("i18n_accept_error")
+throw e}))},declineConnection:function(e){var t=this
+this.get("invitationPlatform").ignoreInvitation(e,"ACTION_INVITATION_IGNORE").then((function(){t._removePendingInvitationFromConversation()})).catch((function(e){t._errorToast("i18n_decline_error")
+throw e}))},requestToConnect:function(e){var t=this
+this.get("invitationPlatform").sendInvitationByProfileId(e).then((function(){t.get("isDestroying")||t.set("hasPendingInvitationSent",!0)})).catch((function(e){t._errorToast("i18n_request_to_connect_error")
+throw e}))}},_errorToast:function(e){var t=this.get("i18n").getMessageRenderer(n.default,e)()
+this.get("persistentToastManager").error({message:t})},_handleNewPendingInvitation:function(e){this.get("recipientProfileId")===e&&this.get("invitationPlatform").hasPendingInvitation(e)&&this.set("hasPendingInvitationSent",!0)},_removePendingInvitationFromConversation:function(){this.get("store").push({data:{type:i,id:this.get("conversation.entityUrn"),attributes:{pendingInvitation:null}}})}})
+e.default=s})
+define("msg-conversation-ui/components/profile-card-group",["exports","msg-conversation-ui/templates/components/profile-card-group"],function(e,t){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var n=Ember.Component.extend({layout:t.default,classNames:["msg-s-profile-card"],othersCount:Ember.computed("recipientProfiles.[]",(function(){return this.get("recipientProfiles.length")-5+1})).readOnly(),actions:{onRollupClick:function(){this.get("customRollupClickAction")?this.get("customRollupClickAction")():this.set("isConvoDetailModalOpen",!0)}}})
+e.default=n})
+define("msg-conversation-ui/components/profile-card-one-to-one",["exports","@babel/runtime/helpers/esm/taggedTemplateLiteralLoose","global-utils/utils/profile-id-parser","global-utils/utils/html-safe","msg-shared/utils/constants","msg-conversation-ui/templates/components/profile-card-one-to-one"],function(e,t,n,i,s,a){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+function o(){var e=(0,t.default)(["\n        ","\n        <strong>","</strong>\n        ","\n      "])
+o=function(){return e}
+return e}var r=s.default.MESSAGE_REQUEST_CONTEXT_TYPE,l=Ember.Component.extend({layout:a.default,i18n:Ember.inject.service("i18n"),identityStore:Ember.inject.service("data-layer@identity-store"),classNames:["msg-s-profile-card","msg-s-profile-card-one-to-one"],"data-test-profile-card-one-to-one":!0,didReceiveAttrs:function(){var e=this
+this._super.apply(this,arguments)
+var t=this.getProperties("recipientProfile","identityStore"),i=t.recipientProfile
+t.identityStore.findRecord("com.linkedin.voyager.identity.profile.ProfileNetworkInfo",(0,n.getProfileMemberId)(i)).then((function(t){e.isDestroying||e.set("recipientDistance",t.get("distance.value"))}))
+this._generateMessageRequestContextText()},_generateMessageRequestContextText:function(){var e,t,n=this.getProperties("i18n","messageRequestComposeContext","messageRequestConversationContext"),s=n.i18n,l=n.messageRequestComposeContext,c=n.messageRequestConversationContext
+if(l){var m=l.contextType,p=l.groupName
+switch(t=m){case r.GROUP_NAME.type:e=(0,i.default)(s.getMessageRenderer(a.default,"i18n_message_request_group_context")([{groupName:p}]))}}else if(c){var u=c.getProperties("text","attributes.firstObject"),d=u.text,f=u["attributes.firstObject"].getProperties("type","start","length"),g=f.type,v=f.start,b=f.length
+t=g
+e=(0,i.default)(jSecure.mk(o(),d.substr(0,v),d.substr(v,b),d.substr(v+b)))}this.setProperties({contextIcon:r[t]?r[t].icon:null,contextText:e})}})
+e.default=l})
+define("msg-conversation-ui/components/typing-indicators",["exports","msg-conversation-ui/templates/components/typing-indicators"],function(e,t){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var n=Ember.Component.extend({layout:t.default,tagName:"li",classNames:["msg-s-typing-indicator"],classNameBindings:["typingParticipants.length:msg-s-typing-indicator--active"]})
+e.default=n})
+define("msg-conversation-ui/config/environment",["exports"],function(e){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var t
+try{var n=document.querySelector('meta[name="msg-conversation-ui/config/environment"]').getAttribute("content")
+t=JSON.parse(unescape(n))}catch(s){t={}}var i=t
+e.default=i})
+define.alias("ember-cli-pemberly-i18n/helpers/bidi-dir","msg-conversation-ui/helpers/bidi-dir")
+define.alias("ember-cli-pemberly-i18n/helpers/format-currency","msg-conversation-ui/helpers/format-currency")
+define.alias("ember-cli-pemberly-i18n/helpers/format-date","msg-conversation-ui/helpers/format-date")
+define.alias("ember-cli-pemberly-i18n/helpers/format-name","msg-conversation-ui/helpers/format-name")
+define.alias("ember-cli-pemberly-i18n/helpers/format-number","msg-conversation-ui/helpers/format-number")
+define.alias("ember-cli-pemberly-i18n/helpers/format-time","msg-conversation-ui/helpers/format-time")
+define.alias("ember-cli-pemberly-i18n/helpers/format-truncate","msg-conversation-ui/helpers/format-truncate")
+define.alias("ember-cli-pemberly-i18n/helpers/is-any-locale","msg-conversation-ui/helpers/is-any-locale")
+define.alias("ember-cli-pemberly-i18n/helpers/is-cjk-language","msg-conversation-ui/helpers/is-cjk-language")
+define.alias("ember-cli-pemberly-i18n/helpers/is-rtl-content","msg-conversation-ui/helpers/is-rtl-content")
+define.alias("ember-cli-pemberly-i18n/helpers/is-rtl-language","msg-conversation-ui/helpers/is-rtl-language")
+define.alias("ember-cli-pemberly-i18n/helpers/t-link-to","msg-conversation-ui/helpers/t-link-to")
+define.alias("ember-cli-pemberly-i18n/helpers/t-make-name","msg-conversation-ui/helpers/t-make-name")
+define.alias("ember-cli-pemberly-i18n/helpers/t","msg-conversation-ui/helpers/t")
+define.alias("ember-cli-pemberly-i18n/initializers/i18n","msg-conversation-ui/initializers/i18n")
+define("msg-conversation-ui/instance-initializers/-t-link-to",["exports","ember-stdlib/utils/is-browser"],function(e,t){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.initialize=n
+e.default=void 0
+function n(e){t.default&&e.lookup("service:-t-link-to")}var i={name:"-t-link-to",initialize:n}
+e.default=i})
+define("msg-conversation-ui/instance-initializers/locale",["exports","ember-stdlib/utils/is-browser","msg-conversation-ui/services/locale"],function(e,t,n){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.initialize=a
+e.default=void 0
+var i=/([a-z]{2}_[A-Z]{2})/
+function s(e){var t=document.querySelector("meta[name="+e+"]")
+if(t)return t.getAttribute("content")}function a(e){if(t.default){var a,o=e.lookup("service:locale")
+if(!a){var r=(function(){var e=s("i18nLocale"),t={}
+e&&(t.locale=e)
+return t})()
+r.locale&&i.test(r.locale)&&(a=r.locale)}if(!a){Ember.Logger.info("Didn't find locale meta tag. Defaulting to "+n.DEFAULT_LOCALE)
+a=n.DEFAULT_LOCALE}var l=s("requestIpCountryCode")
+o.setProperties({interfaceLocale:a,requestIpCountryCode:l})}}var o={name:"locale",initialize:a}
+e.default=o})
+define.alias("ember-cli-pemberly-i18n/services/-t-link-to","msg-conversation-ui/services/-t-link-to")
+define.alias("artdeco-modal/services/artdeco-modal","msg-conversation-ui/services/artdeco-modal")
+define.alias("ember-cli-pemberly-i18n/services/formatter","msg-conversation-ui/services/formatter")
+define.alias("ember-cli-pemberly-i18n/services/i18n","msg-conversation-ui/services/i18n")
+define.alias("ember-cli-pemberly-i18n/services/locale","msg-conversation-ui/services/locale")
+define("msg-conversation-ui/templates/components/conversation-mute-banner",["exports"],function(e){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var t=Ember.HTMLBars.template({id:"cRYMzp43",block:'{"symbols":[],"statements":[[7,"p"],[11,"class","t-14 t-black--light t-normal"],[9],[1,[27,"t",["i18n_conversation_muted","msg-conversation-ui/templates/components/conversation-mute-banner"],null],false],[10],[0,"\\n"],[4,"artdeco-button@artdeco-button",null,[["size","click","data-control-name"],[1,[27,"action",[[22,0,[]],[23,["toggleConversationMute"]]],null],[27,"concat",[[23,["actionTrackingPrefix"]],"unmute"],null]]],{"statements":[[0,"  "],[1,[27,"t",["i18n_unmute","msg-conversation-ui/templates/components/conversation-mute-banner"],null],false],[0,"\\n"]],"parameters":[]},null]],"hasEval":false}',meta:{moduleName:"msg-conversation-ui/templates/components/conversation-mute-banner.hbs"}})
+e.default=t})
+define("msg-conversation-ui/templates/components/conversation-rename",["exports"],function(e){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var t=Ember.HTMLBars.template({id:"2CigessC",block:'{"symbols":[],"statements":[[7,"label"],[11,"class","visually-hidden"],[12,"for",[28,["msg-overlay-conversation-name-input-",[23,["conversation","id"]]]]],[9],[0,"\\n  "],[1,[27,"t",["i18n_name_conversation","msg-conversation-ui/templates/components/conversation-rename"],null],false],[0,"\\n"],[10],[0,"\\n"],[1,[27,"input",null,[["type","id","class","oninput","value","required","placeholder"],["text",[27,"concat",["msg-s-thread-actions-tray__rename-input-",[23,["conversation","id"]]],null],"msg-s-thread-actions-tray__rename-input t-20 t-black t-light",[27,"action",[[22,0,[]],[27,"mut",[[23,["conversationNameDisplay"]]],null]],[["value"],["target.value"]]],[23,["conversationNameDisplay"]],"true",[27,"t",["i18n_name_conversation","msg-conversation-ui/templates/components/conversation-rename"],null]]]],false],[0,"\\n"],[4,"artdeco-button@artdeco-button",null,[["class","controlType","size","disabled"],["ml2 flex-shrink-zero","submit",1,[23,["invalidLength"]]]],{"statements":[[0,"  "],[1,[27,"t",["i18n_save","msg-conversation-ui/templates/components/conversation-rename"],null],false],[0,"\\n"]],"parameters":[]},null]],"hasEval":false}',meta:{moduleName:"msg-conversation-ui/templates/components/conversation-rename.hbs"}})
+e.default=t})
+define("msg-conversation-ui/templates/components/inmail-credits-display",["exports"],function(e){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var t=Ember.HTMLBars.template({id:"Z0NWP929",block:'{"symbols":[],"statements":[[7,"section"],[12,"class",[28,["msg-inmail-compose-widget__action-bar pv2 ph4 ",[27,"if",[[23,["isRecipientOpenToFreeMessages"]],"justify-flex-end"],null]]]],[9],[0,"\\n"],[4,"unless",[[23,["isRecipientOpenToFreeMessages"]]],null,{"statements":[[0,"    "],[7,"span"],[11,"class","a11y-text"],[9],[1,[27,"t",["i18n_a11y_premium_badge","msg-conversation-ui/templates/components/inmail-credits-display"],null],false],[10],[0,"\\n    "],[1,[27,"ember-cli-pemberly-artdeco@li-icon",null,[["type","size"],["premium-badge","10dp"]]],false],[0,"\\n"]],"parameters":[]},null],[0,"  "],[7,"p"],[11,"class","inmail-status t-12 t-black--light t-normal"],[9],[0,"\\n"],[4,"if",[[23,["loading"]]],null,{"statements":[[0,"      "],[1,[27,"t",["i18n_loading_indicator","msg-conversation-ui/templates/components/inmail-credits-display"],null],false],[0,"\\n"]],"parameters":[]},{"statements":[[4,"if",[[23,["showFreeMessage"]]],null,{"statements":[[0,"      "],[1,[27,"t",["i18n_free_message","msg-conversation-ui/templates/components/inmail-credits-display"],null],false],[0,"\\n"]],"parameters":[]},{"statements":[[4,"if",[[23,["inmailCredits"]]],null,{"statements":[[0,"      "],[1,[27,"t",["i18n_num_credits_left","msg-conversation-ui/templates/components/inmail-credits-display"],[["numCredits"],[[23,["inmailCredits"]]]]],false],[0,"\\n"]],"parameters":[]},{"statements":[[0,"      "],[7,"span"],[11,"class","msg-inmail-compose-widget__error"],[9],[1,[27,"t",["i18n_no_credits_left","msg-conversation-ui/templates/components/inmail-credits-display"],null],false],[10],[0,"\\n    "]],"parameters":[]}]],"parameters":[]}]],"parameters":[]}],[0,"  "],[10],[0,"\\n"],[10]],"hasEval":false}',meta:{moduleName:"msg-conversation-ui/templates/components/inmail-credits-display.hbs"}})
+e.default=t})
+define("msg-conversation-ui/templates/components/nonconnection-banner",["exports"],function(e){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var t=Ember.HTMLBars.template({id:"1TJoMAxV",block:'{"symbols":[],"statements":[[4,"if",[[23,["showNonConnectionBanner"]]],null,{"statements":[[0,"  "],[7,"div"],[11,"class","msg-s-thread-actions-tray__item-nonconnection-banner msg-s-thread-actions-tray__item t-12 t-black t-normal"],[9],[0,"\\n    "],[7,"div"],[11,"class","msg-nonconnection-banner__primary-text flex-wrap mr2"],[9],[0,"\\n      "],[1,[27,"t",[[27,"if",[[23,["hasPendingInvitationReceived"]],"i18n_requested_to_connect","i18n_not_connected"],null],"msg-conversation-ui/templates/components/nonconnection-banner"],[["participantName"],[[23,["conversation","participantNames","firstObject"]]]]],false],[0,"\\n    "],[10],[0,"\\n\\n    "],[7,"div"],[11,"class","mlA flex-shrink-zero"],[9],[0,"\\n"],[4,"if",[[23,["hasPendingInvitationReceived"]]],null,{"statements":[[0,"        "],[1,[27,"artdeco-button@artdeco-button",null,[["class","type","size","circle","color","click","icon","text"],["msg-nonconnection-banner__decline-btn mr1","secondary",1,true,"muted",[27,"action",[[22,0,[]],"declineConnection",[23,["conversation","pendingInvitation"]]],null],"cancel-icon",[27,"t",["a11y_decline_connection_request","msg-conversation-ui/templates/components/nonconnection-banner"],null]]]],false],[0,"\\n\\n        "],[1,[27,"artdeco-button@artdeco-button",null,[["class","type","size","circle","click","data-control-name","icon","text"],["msg-nonconnection-banner__accept-btn","secondary",1,true,[27,"action",[[22,0,[]],"acceptConnection",[23,["conversation","pendingInvitation"]]],null],"confirm_connection_invite","check-icon",[27,"t",["a11y_accept_connection_request","msg-conversation-ui/templates/components/nonconnection-banner"],null]]]],false],[0,"\\n"]],"parameters":[]},{"statements":[[4,"if",[[23,["hasPendingInvitationSent"]]],null,{"statements":[[0,"        "],[7,"span"],[11,"class","msg-nonconnection-banner__pending"],[9],[0,"\\n          "],[1,[27,"ember-cli-pemberly-artdeco@li-icon",null,[["type","class","size","animate"],["success-pebble-icon","v-align-top","small","true"]]],false],[0,"\\n          "],[1,[27,"t",["i18n_invitation_pending","msg-conversation-ui/templates/components/nonconnection-banner"],null],false],[0,"\\n        "],[10],[0,"\\n"]],"parameters":[]},{"statements":[[0,"        "],[1,[27,"artdeco-button@artdeco-button",null,[["icon","circle","size","type","click","class","text"],["connect-icon","true",1,"secondary",[27,"tracked-action",["send_connection_invite",[27,"action",[[22,0,[]],"requestToConnect",[23,["recipientProfileId"]]],null]],null],"msg-nonconnection-banner__connect-btn",[27,"t",["a11y_request_to_connect","msg-conversation-ui/templates/components/nonconnection-banner"],null]]]],false],[0,"\\n      "]],"parameters":[]}]],"parameters":[]}],[0,"    "],[10],[0,"\\n  "],[10],[0,"\\n"]],"parameters":[]},null]],"hasEval":false}',meta:{moduleName:"msg-conversation-ui/templates/components/nonconnection-banner.hbs"}})
+e.default=t})
+define("msg-conversation-ui/templates/components/profile-card-group",["exports"],function(e){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var t=Ember.HTMLBars.template({id:"C0Lk7bEe",block:'{"symbols":["assetLoader","profile"],"statements":[[4,"artdeco-entity-pile@artdeco-entity-pile",null,[["entities","size","maxEntities","shape","stacked","onRollupClick"],[[23,["recipientProfiles"]],4,5,"circle",false,[27,"action",[[22,0,[]],"onRollupClick"],null]]],{"statements":[[4,"link-to-external",["profile.view",[22,2,["publicIdentifier"]]],[["class"],["inline-block"]],{"statements":[[0,"    "],[1,[27,"presence@entity-with-presence",null,[["classNames","miniProfile","size"],["msg-conversation-card__presence-entity",[22,2,[]],4]]],false],[0,"\\n"]],"parameters":[]},null]],"parameters":[2]},null],[0,"\\n"],[7,"div"],[11,"class","mt2 t-14 t-bold"],[9],[0,"\\n"],[4,"if",[[27,"global-helpers@eq",[[23,["recipientProfiles","length"]],2],null]],null,{"statements":[[0,"    "],[1,[27,"t",["i18n_participant_list_of_2","msg-conversation-ui/templates/components/profile-card-group"],[["link1","name1","link2","name2"],[[27,"ember-cli-pemberly-i18n@t-link-to",["profile.view",[23,["recipientProfiles","0","publicIdentifier"]]],null],[23,["recipientNames","0"]],[27,"ember-cli-pemberly-i18n@t-link-to",["profile.view",[23,["recipientProfiles","1","publicIdentifier"]]],null],[23,["recipientNames","1"]]]]],false],[0,"\\n"]],"parameters":[]},{"statements":[[4,"if",[[27,"global-helpers@eq",[[23,["recipientProfiles","length"]],3],null]],null,{"statements":[[0,"    "],[1,[27,"t",["i18n_participant_list_of_3","msg-conversation-ui/templates/components/profile-card-group"],[["link1","name1","link2","name2","link3","name3"],[[27,"ember-cli-pemberly-i18n@t-link-to",["profile.view",[23,["recipientProfiles","0","publicIdentifier"]]],null],[23,["recipientNames","0"]],[27,"ember-cli-pemberly-i18n@t-link-to",["profile.view",[23,["recipientProfiles","1","publicIdentifier"]]],null],[23,["recipientNames","1"]],[27,"ember-cli-pemberly-i18n@t-link-to",["profile.view",[23,["recipientProfiles","2","publicIdentifier"]]],null],[23,["recipientNames","2"]]]]],false],[0,"\\n"]],"parameters":[]},{"statements":[[4,"if",[[27,"global-helpers@eq",[[23,["recipientProfiles","length"]],4],null]],null,{"statements":[[0,"    "],[1,[27,"t",["i18n_participant_list_of_4","msg-conversation-ui/templates/components/profile-card-group"],[["link1","name1","link2","name2","link3","name3","link4","name4"],[[27,"ember-cli-pemberly-i18n@t-link-to",["profile.view",[23,["recipientProfiles","0","publicIdentifier"]]],null],[23,["recipientNames","0"]],[27,"ember-cli-pemberly-i18n@t-link-to",["profile.view",[23,["recipientProfiles","1","publicIdentifier"]]],null],[23,["recipientNames","1"]],[27,"ember-cli-pemberly-i18n@t-link-to",["profile.view",[23,["recipientProfiles","2","publicIdentifier"]]],null],[23,["recipientNames","2"]],[27,"ember-cli-pemberly-i18n@t-link-to",["profile.view",[23,["recipientProfiles","3","publicIdentifier"]]],null],[23,["recipientNames","3"]]]]],false],[0,"\\n"]],"parameters":[]},{"statements":[[0,"    "],[1,[27,"t",["i18n_participant_list_of_5_or_more","msg-conversation-ui/templates/components/profile-card-group"],[["othersCount","link1","name1","link2","name2","link3","name3","link4","name4","link5","name5"],[[23,["othersCount"]],[27,"ember-cli-pemberly-i18n@t-link-to",["profile.view",[23,["recipientProfiles","0","publicIdentifier"]]],null],[23,["recipientNames","0"]],[27,"ember-cli-pemberly-i18n@t-link-to",["profile.view",[23,["recipientProfiles","1","publicIdentifier"]]],null],[23,["recipientNames","1"]],[27,"ember-cli-pemberly-i18n@t-link-to",["profile.view",[23,["recipientProfiles","2","publicIdentifier"]]],null],[23,["recipientNames","2"]],[27,"ember-cli-pemberly-i18n@t-link-to",["profile.view",[23,["recipientProfiles","3","publicIdentifier"]]],null],[23,["recipientNames","3"]],[27,"ember-cli-pemberly-i18n@t-link-to",["profile.view",[23,["recipientProfiles","4","publicIdentifier"]]],null],[23,["recipientNames","4"]]]]],false],[0,"\\n  "]],"parameters":[]}]],"parameters":[]}]],"parameters":[]}],[10],[0,"\\n\\n"],[4,"asset-loader@deferred-asset-loader",null,[["bundle"],["msg-shared-modals"]],{"statements":[[4,"if",[[22,1,["state","fulfilled"]]],null,{"statements":[[0,"    "],[1,[27,"msg-shared-modals@conversation-modals",null,[["isConvoDetailModalOpen","conversation","handleSuccessfulDiscardRequest","toggleConversationMute","trackingModuleName","actionTrackingPrefix","addParticipantsPageKey","isOverlay"],[[23,["isConvoDetailModalOpen"]],[23,["conversation"]],[23,["handleSuccessfulDiscardRequest"]],[23,["toggleConversationMute"]],[23,["trackingModuleName"]],[23,["actionTrackingPrefix"]],"flagship3_messaging_overlay_manage_participants_modal.page",[23,["isOverlay"]]]]],false],[0,"\\n"]],"parameters":[]},null]],"parameters":[1]},null]],"hasEval":false}',meta:{moduleName:"msg-conversation-ui/templates/components/profile-card-group.hbs"}})
+e.default=t})
+define("msg-conversation-ui/templates/components/profile-card-one-to-one",["exports"],function(e){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var t=Ember.HTMLBars.template({id:"pK+jacGe",block:'{"symbols":["elements"],"statements":[[4,"artdeco-entity-lockup",null,[["class","size","stacked"],["break-words",[27,"if",[[23,["inlineLayout"]],"4","5"],null],[27,"if",[[23,["inlineLayout"]],false,"left"],null]]],{"statements":[[4,"link-to-external",["profile.view",[23,["recipientProfile","publicIdentifier"]]],null,{"statements":[[4,"component",[[22,1,["image"]]],[["type"],["circle"]],{"statements":[[0,"      "],[1,[27,"presence@entity-with-presence",null,[["classNames","miniProfile","size"],["msg-conversation-card__presence-entity",[23,["recipientProfile"]],[27,"if",[[23,["inlineLayout"]],"4","5"],null]]]],false],[0,"\\n"]],"parameters":[]},null]],"parameters":[]},null],[4,"component",[[22,1,["content"]]],null,{"statements":[[4,"component",[[22,1,["title"]]],null,{"statements":[[4,"link-to-external",["profile.view",[23,["recipientProfile","publicIdentifier"]]],[["class"],["profile-card-one-to-one__profile-link"]],{"statements":[[0,"        "],[1,[27,"ember-cli-pemberly-i18n@format-name",null,[["firstName","lastName","type"],[[23,["recipientProfile","firstName"]],[23,["recipientProfile","lastName"]],"full"]]],false],[0,"\\n"]],"parameters":[]},null]],"parameters":[]},null],[4,"if",[[23,["recipientDistance"]]],null,{"statements":[[0,"      "],[1,[27,"component",[[22,1,["badge"]]],[["degreeText","degreeA11yText"],[[27,"t",["i18n_distance_v2","msg-conversation-ui/templates/components/profile-card-one-to-one"],[["distance"],[[23,["recipientDistance"]]]]],[27,"t",["i18n_distance_a11y_v2","msg-conversation-ui/templates/components/profile-card-one-to-one"],[["distance"],[[23,["recipientDistance"]]]]]]]],false],[0,"\\n"]],"parameters":[]},null],[4,"component",[[22,1,["subtitle"]]],null,{"statements":[[0,"      "],[7,"div"],[12,"title",[23,["recipientProfile","occupation"]]],[9],[0,"\\n        "],[1,[23,["recipientProfile","occupation"]],false],[0,"\\n      "],[10],[0,"\\n"]],"parameters":[]},null],[0,"\\n"],[4,"if",[[23,["contextText"]]],null,{"statements":[[4,"component",[[22,1,["metadata"]]],[["class"],["profile-card-one-to-one__context"]],{"statements":[[4,"if",[[23,["contextIcon"]]],null,{"statements":[[0,"          "],[1,[27,"ember-cli-pemberly-artdeco@li-icon",null,[["type","size"],[[23,["contextIcon"]],"small"]]],false],[0,"\\n"]],"parameters":[]},null],[0,"        "],[7,"span"],[11,"class","pl1"],[9],[1,[21,"contextText"],false],[10],[0,"\\n"]],"parameters":[]},null]],"parameters":[]},null]],"parameters":[]},null]],"parameters":[1]},null]],"hasEval":false}',meta:{moduleName:"msg-conversation-ui/templates/components/profile-card-one-to-one.hbs"}})
+e.default=t})
+define("msg-conversation-ui/templates/components/typing-indicators",["exports"],function(e){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var t=Ember.HTMLBars.template({id:"QOTaW0+Q",block:'{"symbols":["entity"],"statements":[[0,"\\n"],[7,"ul"],[11,"class","msg-s-typing-indicator__profile-pictures"],[9],[0,"\\n"],[4,"each",[[23,["typingParticipants"]]],null,{"statements":[[0,"    "],[7,"li"],[12,"class",[28,["msg-s-typing-indicator__profile-picture ",[27,"if",[[22,1,["isTyping"]],"msg-s-typing-indicator__profile-picture--active","msg-s-typing-indicator__profile-picture--exit"],null]]]],[9],[0,"\\n      "],[1,[27,"ember-mpr-images@lazy-image",null,[["image","alt","classNames","desiredWidth","desiredHeight","ghostType"],[[22,1,["picture"]],[22,1,["fullName"]],"msg-s-typing-indicator__profile-picture-img EntityPhoto-circle-1",100,100,"person"]]],false],[0,"\\n    "],[10],[0,"\\n"]],"parameters":[1]},null],[10],[0,"\\n"],[7,"div"],[11,"class","msg-s-typing-indicator__typing"],[9],[0,"\\n  "],[7,"span"],[11,"class","msg-s-typing-indicator__dot"],[9],[10],[0,"\\n  "],[7,"span"],[11,"class","msg-s-typing-indicator__dot"],[9],[10],[0,"\\n  "],[7,"span"],[11,"class","msg-s-typing-indicator__dot"],[9],[10],[0,"\\n"],[10],[0,"\\n"]],"hasEval":false}',meta:{moduleName:"msg-conversation-ui/templates/components/typing-indicators.hbs"}})
+e.default=t})
+
+//# sourceMappingURL=engine.map
