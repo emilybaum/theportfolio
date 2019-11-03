@@ -281,6 +281,26 @@ html, body {
 }
 
 
+/* 404 page */
+.errorAlignment {
+    display: flex;
+    flex-direction: column;
+}
+
+.errorText {
+    display: flex;
+    flex-direction: row;
+}
+
+.errorContainer {
+    margin-top: 200px;
+}
+
+.errorBackground {
+    background-color: #bfe0e975;
+}
+
+
 /* FOOTER DETAILS */
 
 .footerEmily {  
@@ -315,7 +335,6 @@ html, body {
 .socialLinks {
     width: 30px;
 }
-
 
 /* ### */
 

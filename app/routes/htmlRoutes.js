@@ -15,4 +15,10 @@ module.exports = function (app, passport) {
     app.get("/about", function (req, res) {
         res.sendFile(path.join(__dirname, "../public/about.html"));
     });
+
+    // Loads 404 page
+    app.get("/*", function (req, res) {
+        res.sendFile(path.join(__dirname, "../public/404.html"));
+    });
+
 }
