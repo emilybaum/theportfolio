@@ -123,6 +123,14 @@
 
         <div id="projects-row" class="row pt-3"> <!-- PROJECTS ROW-->
                 
+                
+                <!-- Upself -->
+                <div data-toggle="modal" data-target="#seeMoreUpself" class="card borderFS projects-display">
+                    <div class="card-body p-0">
+                        <img class="project-image" src="images/upself_logo.svg">
+                    </div>
+                </div>
+            
                 <!-- ClickyGame -->
                 <div data-toggle="modal" data-target="#seeMoreClickyGame" class="card borderFS projects-display">
                     <div class="card-body p-0">
@@ -222,6 +230,51 @@
 <!-- ====================================================================================================== -->
 <!-- =============================================== MODALS =============================================== -->
         <div> <!-- Modals section -->
+
+            <!-- UPSELF -->
+            <div class="modal fade" id="seeMoreUpself" tabindex="-1" role="dialog" aria-labelledby="seeMoreTitle"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modalTitle">Upself</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mx-auto text-center modalDescription">
+                                Upself presents a friendly AI chatbot called Upsy with a simple goal: Make your day better! Upsy is programmed to handle statistically significant psychological tests to help you understand and measure how you are feeling. It's also packed with some cool question-answers datasets to make the interaction more fun. 
+                                Engage with Upsy through the web or in the mobile app - built with React and React Native respectively. 
+                            </div>
+                            <hr>
+                            <div class="mx-auto text-center modalTech">
+                                <h3 class="listTechTitle">Tech Stuff:</h3>
+                                <ul class="list-group techGroup">
+                                    <li class="list-group-item listTech">React</li>
+                                    <li class="list-group-item listTech">React Native</li>
+                                    <li class="list-group-item listTech">JavaScript</li>
+                                    <li class="list-group-item listTech">Node.js</li>
+                                    <li class="list-group-item listTech">jQuery</li>
+                                    <li class="list-group-item listTech">NPM</li>
+                                    <li class="list-group-item listTech">HTML5 & CSS3</li>
+                                    <li class="list-group-item listTech">Heroku</li>
+                                    <li class="list-group-item listTech">AWS</li>
+                                    <li class="list-group-item listTech">MySQL</li>
+                                    <li class="list-group-item listTech">MongoDB</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="https://github.com/costargc/upself" target="_blank"><button type="button" class="btn btn-secondary modalSeeCode">GitHub Web</button></a>
+                            <a href="https://github.com/mgilliland23/UpselfMobileExpo" target="_blank"><button type="button" class="btn btn-secondary modalSeeCode">GitHub Mobile</button></a>
+                            <a href="https://upself.io/" target="_blank"><button type="button" class="btn btn-secondary modalLaunchSite">Launch
+                                    Site</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
             <!-- ClickyGame MODAL  -->
             <div class="modal fade" id="seeMoreClickyGame" tabindex="-1" role="dialog" aria-labelledby="seeMoreTitle"
